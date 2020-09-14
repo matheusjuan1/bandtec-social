@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BandTec Social</title>
+    <link rel="stylesheet" href="style/styleLC.css">
+    <script src="https://kit.fontawesome.com/c8284bd1fb.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="corpo">
+        <center>
+            <img id="logo" src="images/logo.png" alt="">
+            <div id="divLogin" class="mainLogin">
+                <i class="far fa-user-circle"></i><br>
+                <form action="" id="formLogin">
+                    <input autofocus id="emailLogin" name="email" type="email" placeholder="E-mail"><br>
+                    <input name="senha" type="password" placeholder="Senha"><br>
+                </form>
+                <button onclick="validar()">Entrar</button><br><br>    
+                <a href="#">Esqueceu a senha?</a><br><br>
+                Não possui uma conta? <a href="">Cadastre-se</a>
+            </div>
+        </center>
+    </section>
+</body>
+
+</html>
+<script>
+    window.onload = function(){
+        document.getElementById("logo").style.opacity = 1;
+        document.getElementById("divLogin").style.marginTop = 0;
+    }
+    function validar() {
+        email = emailLogin.value;
+        dominio = email.indexOf('@bandtec.com.br');
+        var mensagem = [];
+        if (dominio < 0) {
+            mensagem.push("O domínio do e-mail deve ser '@bandtec.com.br'");
+        };
+        if (email.length < 6) {
+            mensagem.push("A senha deve possuir pelo menos 6 caracteres")
+        };
+
+        if (mensagem.length == 0) {
+            formLogin.submit;
+        }
+    }
+
+</script>

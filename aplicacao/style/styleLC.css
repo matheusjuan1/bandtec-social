@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
+body {
+    background-image: url(../images/digital-school.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-backdrop-filter: brightness(26%);
+    backdrop-filter: brightness(26%); 
+    height: 100vh;
+    font-family: 'Exo 2', sans-serif;
+    overflow: hidden;
+}
+
+.corpo img{
+    width: 18%;
+    margin: 3vmin 0 2vmin 0;
+    transition: 4s;
+    opacity: 0;
+}
+
+.mainLogin {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: #00BACF 4px solid;
+    border-radius: 25px;
+    width: 30vw;
+    height: 55vh;
+    box-shadow: 0px 0px 13px #00BACF;
+    color: white;
+    margin-top: -60%;
+    transition: 0.6s;
+}
+
+.mainLogin:hover {
+    box-shadow: 0px 0px 20px #00BACF, 0px 0px 17px #00BACF, 0px 0px 15px #00BACF;
+}
+
+.mainLogin i {
+    color: #00BACF;
+    font-size: 7vmin;
+    margin: 3vmin 0;
+    text-shadow: 0px 0px 13px #00BACF;
+}
+
+.mainLogin a {
+    color: white;
+    margin: 2vmin 0;
+}
+
+.mainLogin input {
+    margin: 2vmin 0;
+    background-color: transparent;
+    color: white;
+    border-radius: 15px;
+    width: 60%;
+    height: 5%;
+    outline: none;
+    border: #00BACF 2px solid;
+    padding: 1vmin 1.5vmin;
+    font-size: 2vmin;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+}
+
+.mainLogin input:hover {
+    border: #FF005C 2px solid;
+}
+
+.mainLogin input:focus {
+    border: #FF005C 2px solid;
+    box-shadow: 0px 0px 13px #FF005C;
+}
+
+.mainLogin button{
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: white;
+    background-color: #FF005C;
+    outline: none;
+    border: none;
+    width: 28%;
+    height: 10%;
+    border-radius: 8px;
+    margin: 3vmin;
+    cursor: pointer;
+}
+
+.mainLogin button:hover {
+    box-shadow: 0px 0px 13px #FF005C;
+}
+
+.mainLogin button:active {
+    background-color: #34373F;
+}
