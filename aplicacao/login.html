@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <section class="corpo">
+    <section class="corpoLogin">
         <center>
             <img id="logo" src="images/logo.png" alt="">
             <div id="divLogin" class="mainLogin">
                 <i class="far fa-user-circle"></i><br>
-                <form action="" id="formLogin">
+                <form action="cadastro.html" id="formLogin">
                     <input autofocus id="emailLogin" name="email" type="email" placeholder="E-mail"><br>
                     <input name="senha" type="password" placeholder="Senha"><br>
                 </form>
@@ -45,7 +45,7 @@
         };
 
         if (mensagem.length == 0) {
-            formLogin.submit;
+            formLogin.submit();
         }
     }
 

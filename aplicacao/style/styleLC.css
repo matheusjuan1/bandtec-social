@@ -15,9 +15,10 @@ body {
     height: 100vh;
     font-family: 'Exo 2', sans-serif;
     overflow: hidden;
+    color: white;
 }
 
-.corpo img{
+.corpoLogin img{
     width: 18%;
     margin: 3vmin 0 2vmin 0;
     transition: 4s;
@@ -98,4 +99,29 @@ body {
 
 .mainLogin button:active {
     background-color: #34373F;
+}
+
+/* Cadastro */
+
+#imageSocial {
+    width: 25vmin;
+    margin: 4vmin 0 0 0;
+}
+
+.corpoCadastro {
+    display: flex;
+}
+
+.camposCadastro, .previa {
+    padding: 0 10vmin;
+    width: 50%;
+}
+
+.camposCadastro h1{
+    font-size: 7vmin;
+    margin-top: 0;
+}
+
+.camposCadastro {
+
 }
