@@ -7,30 +7,30 @@
     <link rel="stylesheet" href="style/styleLC.css">
     <script src="https://kit.fontawesome.com/c8284bd1fb.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="bodyCadastro">
     <center><img id="imageSocial" src="images/logo.png" alt=""></center>
     <section class="corpoCadastro">
         <div class="camposCadastro">
-            <h1>Bem-vindo(a)!</h1>
+            <h1>Bem-vindo(a)!</h1><br>
             <form action="">
                 <label for="">Primeiro Nome:</label><br>
-                <input type="text"><br>
+                <input type="text" onkeyup="fcNome1()" id="priNome"><br>
                 <label for="">Segundo Nome:</label><br>
-                <input type="text"><br>
+                <input type="text" onkeyup="fcNome2()" id="segNome"><br>
                 <label for="">E-mail BandTec:</label><br>
+                <input type="email" onkeyup="fcEmail()" id="email"><br>
+                <label for="">Celular:</label><br>
                 <input type="text"><br>
-                <label for="">Cargo:</label><br>
-                <input type="text"><br>
-                <label for="">Sexo:</label><br>
-                <select name="" id="">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select><br>
+                <label for="" >Cargo:</label><br>
+                <input type="text" onkeyup="fcCargo()" id="cargo"><br>
+                <!-- <label for="">Sexo:</label><br> -->
+                <!-- <select name="" id="">
+                    <option value="">Feminino</option>
+                    <option value="">Masculino</option>
+                    <option value="">Outro</option>
+                </select><br> -->
                 <label for="">Data de Nascimento:</label><br>
-                <input type="text">
-                <input type="text">
-                <input type="text"><br>
+                <input onkeyup="fcData()" id="dataNasc" type="date"><br>
                 <label for="">Senha:</label><br>
                 <input type="text"><br>
                 <label for="">Confirme sua senha:</label><br>
@@ -39,16 +39,38 @@
         </div>
         <div class="previa">
             <div>
-                <img src="" alt="">
+                <img src="images/sem-perfil.jpg" alt=""><br><br>
+                <input type="file" alt=""><br><br>
             </div>
-            <b>Nome1</b> <b>Nome2</b><br>
-            <b>Cargo</b> <b>31/12/2000</b><br>
-            <span>email@bandtec.com.br</span><br>
-            <button>Criar Conta</button>
+            <b id="nome1">Nome1</b> <b id="nome2">Nome2</b>
+            <br><br><b id="cargob">Cargo</b> <b id="datab">2000-12-31</b><br><br>
+            <span id="emailspan">email@bandtec.com.br</span><br><br><br>
+            <button onclick="redirecionar()">Criar Conta</button>
         </div>
     </section>
 </body>
 </html>
 <script>
+    function fcNome1() {
+        nome1.innerHTML = priNome.value;
+    }
 
+    function fcNome2() {
+        nome2.innerHTML = segNome.value;
+    }
+
+    function fcEmail() {
+        emailspan.innerHTML = email.value;
+    }
+    function fcCargo() {
+        cargob.innerHTML = cargo.value;
+    }
+
+    function fcData(){
+        datab.innerHTML = document.querySelector("#dataNasc").value;
+    }
+
+    function redirecionar() {
+        window.location.href = "login.html"
+    }
 </script>

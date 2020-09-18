@@ -5,7 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 
-body {
+#bodyLogin {
     background-image: url(../images/digital-school.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -17,6 +17,21 @@ body {
     overflow: hidden;
     color: white;
 }
+
+#bodyCadastro {
+    background-image: url(../images/digital-school.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-backdrop-filter: brightness(26%);
+    backdrop-filter: brightness(26%); 
+    font-family: 'Exo 2', sans-serif;
+    overflow-x: hidden;
+    color: white;
+    padding-bottom: 10vmin;
+}
+
+
 
 .corpoLogin img{
     width: 18%;
@@ -78,7 +93,7 @@ body {
     box-shadow: 0px 0px 13px #FF005C;
 }
 
-.mainLogin button{
+.mainLogin button, .previa button{
     font-family: 'Exo 2', sans-serif;
     font-size: 3vmin;
     font-weight: bold;
@@ -93,11 +108,11 @@ body {
     cursor: pointer;
 }
 
-.mainLogin button:hover {
+.mainLogin button:hover, .previa button:hover {
     box-shadow: 0px 0px 13px #FF005C;
 }
 
-.mainLogin button:active {
+.mainLogin button:active, .previa button:active {
     background-color: #34373F;
 }
 
@@ -113,7 +128,7 @@ body {
 }
 
 .camposCadastro, .previa {
-    padding: 0 10vmin;
+    padding: 0 5vmin;
     width: 50%;
 }
 
@@ -123,5 +138,79 @@ body {
 }
 
 .camposCadastro {
+    margin-left: 20vmin;
+}
 
+.previa {
+    text-align: center;
+    padding-right: 10vmin;
+    padding-top: 10vmin;
+}
+
+.previa b {
+    margin: 2vmin 0.7vmin;
+}
+
+.camposCadastro input{
+    margin: 1vmin 0;
+    background-color: transparent;
+    color: white;
+    border-radius: 15px;
+    width: 40vmin;
+    height: 2.1vmin;
+    outline: none;
+    border: #00BACF 2px solid;
+    padding: 1vmin 1.5vmin;
+    font-size: 2vmin;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+}
+
+.camposCadastro input:hover {
+    border: #FF005C 2px solid;
+}
+
+.camposCadastro input:focus {
+    border: #FF005C 2px solid;
+    box-shadow: 0px 0px 13px #FF005C;
+}
+
+.previa button {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: white;
+    background-color: #FF005C;
+    outline: none;
+    border: none;
+    width: 20vmin;
+    height: 7vmin;
+    border-radius: 8px;
+    margin: 3vmin;
+    cursor: pointer;
+}
+
+.previa img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 3px #00BACF solid;
+    box-shadow: 0px 0px 20px #00BACF, 0px 0px 17px;
+    margin-bottom: 2vmin;
+}
+
+input [type="file"] {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: white;
+    background-color: #FF005C;
+    outline: none;
+    border: none;
+    width: 20vmin;
+    height: 7vmin;
+    border-radius: 8px;
+    margin: 3vmin;
+    cursor: pointer;
 }

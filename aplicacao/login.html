@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/c8284bd1fb.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body id="bodyLogin">
     <section class="corpoLogin">
         <center>
             <img id="logo" src="images/logo.png" alt="">
@@ -21,7 +21,7 @@
                 </form>
                 <button onclick="validar()">Entrar</button><br><br>    
                 <a href="#">Esqueceu a senha?</a><br><br>
-                Não possui uma conta? <a href="">Cadastre-se</a>
+                Não possui uma conta? <a href="cadastro.html">Cadastre-se</a>
             </div>
         </center>
     </section>
@@ -46,6 +46,9 @@
 
         if (mensagem.length == 0) {
             formLogin.submit();
+        }
+        else {
+            alert(mensagem[0]);
         }
     }
 
