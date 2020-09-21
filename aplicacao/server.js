@@ -1,10 +1,27 @@
 const express = require('express');
-
 const app = express();
+const path = require('path');
+const bodyParser = require("body-parser");
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
+app.use(express.static('public'));
+
+
+// 
 
 app.get('/login', (req, res) => {
-    res.send
+    res.sendFile(path.join(__dirname, '/public', '/login.html'));
 });
+
+app.get('/cadastro', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', '/cadastro.html'));
+});
+
+
 
 app.listen(3000, function (err) {
     if (!err) {
