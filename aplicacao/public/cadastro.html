@@ -14,27 +14,27 @@
             <h1>Bem-vindo(a)!</h1><br>
             <form action="">
                 <label for="">Primeiro Nome:</label><br>
-                <input type="text" onkeyup="fcNome1()" id="priNome"><br>
+                <input type="text" name="firstName" onkeyup="fcNome1()" id="priNome"><br>
                 <label for="">Segundo Nome:</label><br>
-                <input type="text" onkeyup="fcNome2()" id="segNome"><br>
+                <input type="text" name="lastName" onkeyup="fcNome2()" id="segNome"><br>
                 <label for="">E-mail BandTec:</label><br>
-                <input type="email" onkeyup="fcEmail()" id="email"><br>
+                <input type="email" name="email" onkeyup="fcEmail()" id="email"><br>
                 <label for="">Celular:</label><br>
-                <input type="text"><br>
+                <input name="celular" type="text"><br>
                 <label for="" >Cargo:</label><br>
-                <input type="text" onkeyup="fcCargo()" id="cargo"><br>
-                <!-- <label for="">Sexo:</label><br> -->
-                <!-- <select name="" id="">
-                    <option value="">Feminino</option>
-                    <option value="">Masculino</option>
-                    <option value="">Outro</option>
-                </select><br> -->
+                <input type="text" name="cargo" onkeyup="fcCargo()" id="cargo"><br>
+                <label for="">Sexo:</label><br>
+                <select name="sexo" id="">
+                    <option value="feminino">Feminino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="outro">Outro</option>
+                </select><br>
                 <label for="">Data de Nascimento:</label><br>
-                <input onkeyup="fcData()" id="dataNasc" type="date"><br>
+                <input onkeyup="fcData()" name="dataNasc" id="dataNasc" type="date"><br>
                 <label for="">Senha:</label><br>
-                <input type="text"><br>
+                <input type="text" name="senha1"><br>
                 <label for="">Confirme sua senha:</label><br>
-                <input type="text"><br>
+                <input type="text" name="confirSenha"><br>
             </form>
         </div>
         <div class="previa">
