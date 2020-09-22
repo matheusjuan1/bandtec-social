@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require("body-parser");
+const db = require('./src/models/conexao')
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

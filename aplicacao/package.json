@@ -1,5 +1,5 @@
 {
-  "name": "aplicacao",
+  "name": "bandtec-social",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,11 +8,14 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Matheus",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
