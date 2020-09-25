@@ -12,7 +12,7 @@
     <section class="corpoCadastro">
         <div class="camposCadastro">
             <h1>Bem-vindo(a)!</h1><br>
-            <form action="">
+            <form id="cadastro" ation="/cadasctro" method="POST">
                 <label for="">Primeiro Nome:</label><br>
                 <input type="text" name="firstName" onkeyup="fcNome1()" id="priNome"><br>
                 <label for="">Segundo Nome:</label><br>
@@ -45,7 +45,7 @@
             <b id="nome1">Nome1</b> <b id="nome2">Nome2</b>
             <br><br><b id="cargob">Cargo</b> <b id="datab">2000-12-31</b><br><br>
             <span id="emailspan">email@bandtec.com.br</span><br><br><br>
-            <button onclick="redirecionar()">Criar Conta</button>
+            <button onclick="enviar()">Criar Conta</button>
         </div>
     </section>
 </body>
@@ -70,7 +70,8 @@
         datab.innerHTML = document.querySelector("#dataNasc").value;
     }
 
-    function redirecionar() {
-        window.location.href = "login.html"
+    function enviar() {
+        cadastro.submit()
     }
+
 </script>

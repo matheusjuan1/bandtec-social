@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require("body-parser");
-const db = require('./src/models/conexao')
+const usuario = require('./src/models/usuario');
+const bcrypt = require('bcrypt');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +22,25 @@ app.get('/login', (req, res) => {
 app.get('/cadastro', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', '/cadastro.html'));
 });
+
+app.post('/cadastro', function(req, res) {
+
+    
+    usuario.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        celular: req.body.celular,
+        cargo: req.body.cargo,
+        sexo: req.body.sexo,
+        dataNasc: req.body.dataNasc,
+        password: req.body.senha1
+    }).then(function () {
+        res.redirect("/login");
+    }).catch(function () {
+        res.send("Erro: Cadastro não foi realizado");
+    });
+})
 
 
 

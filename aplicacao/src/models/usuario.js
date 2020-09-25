@@ -1,11 +1,12 @@
-const database = require('./database')
+const database = require('./database');
+const bcrypt = require("bcrypt");
 
 const usuario = database.sequelize.define('usuario', {
     email: {
         type: database.Sequelize.STRING,
         allowNull: false
     },
-    senha: {
+    password: {
         type: database.Sequelize.STRING,
         allowNull: false
     },
@@ -25,17 +26,37 @@ const usuario = database.sequelize.define('usuario', {
         type: database.Sequelize.STRING,
         allowNull: false
     },
+    celular: {
+        type: database.Sequelize.STRING,
+        allowNull: false
+    },
     sexo: {
         type: database.Sequelize.STRING,
         allowNull: false
     },
     ftperfil: {
         type: database.Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue:"../../public/images/sem-perfil.jpg"
     },
 }, {
-    // Other model options go here
+    //
 });
+
+usuario.beforeCreate((usuario, options) => {
+
+    return bcrypt.hash(usuario.password, 10)
+        .then(hash => {
+            usuario.password = hash;
+        })
+        .catch(err => { 
+            throw new Error(); 
+        });
+});
+
+// usuario.prototype.validPassword = async function(password) {
+//     return await bcrypt.compare(password, this.password);
+// }
 
 // usuario.sync({force: true})
 
