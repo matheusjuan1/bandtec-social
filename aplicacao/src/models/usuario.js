@@ -1,6 +1,7 @@
 const database = require('./database');
 const bcrypt = require("bcrypt");
 
+
 const usuario = database.sequelize.define('usuario', {
     email: {
         type: database.Sequelize.STRING,

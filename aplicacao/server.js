@@ -3,7 +3,6 @@ const app = express();
 const path = require('path');
 const bodyParser = require("body-parser");
 const usuario = require('./src/models/usuario');
-const bcrypt = require('bcrypt');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,7 +23,6 @@ app.get('/cadastro', (req, res) => {
 });
 
 app.post('/cadastro', function(req, res) {
-
     
     usuario.create({
         firstName: req.body.firstName,
