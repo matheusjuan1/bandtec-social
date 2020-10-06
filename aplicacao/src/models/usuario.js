@@ -1,4 +1,4 @@
-const database = require('./database');
+const database = require('../config/database');
 const bcrypt = require("bcrypt");
 
 
@@ -55,9 +55,9 @@ usuario.beforeCreate((usuario, options) => {
         });
 });
 
-// usuario.prototype.validPassword = async function(password) {
-//     return await bcrypt.compare(password, this.password);
-// }
+usuario.prototype.validPassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+};
 
 // usuario.sync({force: true})
 

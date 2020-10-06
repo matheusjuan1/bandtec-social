@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require("body-parser");
 const usuario = require('./src/models/usuario');
+const PostRoutes = require('./src/routes/Post')
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,8 +23,8 @@ app.get('/cadastro', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', '/cadastro.html'));
 });
 
-app.post('/cadastro', function(req, res) {
-    
+app.post('/cadastro', function (req, res) {
+
     usuario.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -38,7 +39,33 @@ app.post('/cadastro', function(req, res) {
     }).catch(function () {
         res.send("Erro: Cadastro não foi realizado");
     });
-})
+});
+
+app.post('/login', function (req, res) {
+
+    usuario.findOne({
+        where: {
+            email: req.body.email,
+        }
+    })
+        .then(async function (usuario) {
+            res.status(200);
+            if (!usuario) {
+                res.send("Não tem usuário")
+            } 
+            else if (!await usuario.validPassword(req.body.senha)) {
+                res.send("Senha errada")
+            }
+            else {
+                res.json(usuario)
+            }
+        }).catch(function () {
+            res.status(400).send("Erro")
+        })
+
+});
+
+app.use('/profile', PostRoutes);
 
 
 
