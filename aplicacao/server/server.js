@@ -69,7 +69,7 @@ app.use('/profile', PostRoutes);
 
 
 
-app.listen(3000, function (err) {
+app.listen(3030, function (err) {
     if (!err) {
         console.log("Servidor iniciado na porta 3000: http://localhost:3000/");
     }
