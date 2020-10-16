@@ -1,4 +1,5 @@
 const database = require('../config/database');
+const usuario = require('./usuario')
 
 
 const post = database.sequelize.define('post', {
@@ -9,6 +10,10 @@ const post = database.sequelize.define('post', {
 }, {
     //
 });
+
+usuario.hasMany(post, {
+    foreignKey: 'id_usuario'
+})
 
 //post.sync({force: true});
 

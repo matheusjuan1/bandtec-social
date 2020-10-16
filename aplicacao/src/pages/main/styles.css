@@ -1,0 +1,33 @@
+.mainSession {
+    text-align: center;
+    padding-bottom: 10vmin;
+}
+
+.post {
+    background-color: white;
+    border: 1px solid silver;
+    padding: 2vmin 2vmin 2vmin 3vmin;
+    border-radius: 2.5vmin;
+    width: 60%;
+    margin: 0.8vmin 20%;
+    text-align: left;
+    display: grid;
+}
+.profile-post {
+    float: left;
+    display: flex;
+    margin-bottom: 1vmin;
+}
+.profile-post img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.profile-post-name {
+    display: grid;
+}
+
+.profile-post h5 {
+    margin: 0.2vmin 1.5vmin;
+}

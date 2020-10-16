@@ -5,6 +5,7 @@ module.exports = {
 
         Post.create({
             conteudo: req.body.conteudo,
+            id_usuario: req.body.idusuario
         }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function () {
@@ -13,7 +14,9 @@ module.exports = {
 
     },
     getAll: function (req, res) {
-        Post.findAll().then(function (Post) {
+        Post.findAll({
+            order: [['createdAt', 'DESC']]
+        }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function () {
             res.status(400).send("Erro")
