@@ -20,9 +20,9 @@ module.exports = {
         })
     },
     getById: function (req, res) {
-        Post.findAll({
+        Post.findOne({
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then(function (Post) {
             res.status(200).json(Post)
@@ -33,7 +33,7 @@ module.exports = {
     delete: function (req, res) {
         Post.destroy({
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then(function (Post) {
             res.status(200).json(Post)
@@ -46,7 +46,7 @@ module.exports = {
             conteudo: req.body.conteudo
         }, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then(function (Post) {
             res.status(200).json(Post)

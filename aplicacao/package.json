@@ -18,17 +18,19 @@
   "author": "Matheus",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
