@@ -18,6 +18,7 @@ export default class Main extends Component {
         const response = await api.get('/');
 
         this.setState({ posts: response.data })
+        console.log(response)
     }
 
     createPosts = async () => {

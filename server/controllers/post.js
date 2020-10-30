@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const Usuario = require("../models/usuario");
 
 module.exports = {
     add: function (req, res) {
@@ -9,17 +10,20 @@ module.exports = {
         }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function () {
-            res.status(400).send("Erro");
+            res.status(400).send();
         });
 
     },
     getAll: function (req, res) {
         Post.findAll({
-            order: [['createdAt', 'DESC']]
+            // include: {
+            //     model: Usuario
+            // },
+            order: [['createdAt', 'DESC']]  
         }).then(function (Post) {
             res.status(200).json(Post)
-        }).catch(function () {
-            res.status(400).send("Erro")
+        }).catch(function (err) {
+            res.status(400).send(err)
         })
     },
     getById: function (req, res) {

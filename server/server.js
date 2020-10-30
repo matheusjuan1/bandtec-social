@@ -3,8 +3,8 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require("body-parser");
-const usuario = require('./src/models/usuario');
-const PostRoutes = require('./src/routes/Post');
+const usuario = require('./models/usuario');
+const PostRoutes = require('./routes/Post');
 
 
 
