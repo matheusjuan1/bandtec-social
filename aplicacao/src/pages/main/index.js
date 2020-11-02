@@ -4,9 +4,17 @@ import './styles.css';
 
 
 export default class Main extends Component {
-    state = {
-        posts: []
+
+    constructor(props) {
+        super(props);
+    
+        this.handleChange = this.handleChange.bind(this);
     }
+    
+    state = {
+        posts: [],
+        lconteudo: ''
+    };
 
     componentDidMount() {
         this.loadPosts();
@@ -16,19 +24,27 @@ export default class Main extends Component {
 
     loadPosts = async () => {
         const response = await api.get('/');
-
         this.setState({ posts: response.data })
-        console.log(response)
     }
 
     createPosts = async () => {
-        await api.post('/', {
-            conteudo: 'Criando post sem os fixos'
+        if (this.state.lconteudo != '') {
+           await api.post('/', {
+            conteudo: this.state.lconteudo
         }).then(function (response) {
             console.log(response);
         }).catch(function (error) {
             console.log(error);
-        })
+        });
+        this.setState({ lconteudo: ''});
+        this.componentDidMount(); 
+        } 
+    }
+
+
+
+    handleChange(event) {
+        this.setState({ lconteudo: event.target.value});
     }
 
 
@@ -40,9 +56,9 @@ export default class Main extends Component {
                         <h6>Matheus Ferreira</h6>
                         <form id="novo">
                             <label for=""></label>
-                            <textarea id="conteudo"></textarea>
+                            <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo} id="conteudo"></textarea>
                         </form>
-                        <button onclick={this.createPosts}>Criar Post</button>
+                        <button onClick={this.createPosts}>Criar Post</button>
                     </div>
                 </div>
                 <div className="posts-list">
