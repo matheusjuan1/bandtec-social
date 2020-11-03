@@ -12,10 +12,8 @@ const post = database.sequelize.define('post', {
 });
 
 
-usuario.hasMany(post, {
-    foreignKey: 'id_usuario'
-})
+post.belongsTo(usuario);
 
-// post.sync({force: true});
+// post.sync({ force: true });
 
 module.exports = post;

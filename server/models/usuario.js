@@ -1,5 +1,6 @@
 const database = require('../config/database');
 const bcrypt = require("bcrypt");
+const post = require('./post')
 
 
 const usuario = database.sequelize.define('usuario', {

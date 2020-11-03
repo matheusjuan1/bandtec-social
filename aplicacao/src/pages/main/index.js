@@ -13,7 +13,8 @@ export default class Main extends Component {
     
     state = {
         posts: [],
-        lconteudo: ''
+        lconteudo: '',
+        usuario: 2
     };
 
     componentDidMount() {
@@ -24,13 +25,14 @@ export default class Main extends Component {
 
     loadPosts = async () => {
         const response = await api.get('/');
-        this.setState({ posts: response.data })
+        this.setState({ posts: response.data });
     }
 
     createPosts = async () => {
-        if (this.state.lconteudo != '') {
+        if (this.state.lconteudo !== '') {
            await api.post('/', {
-            conteudo: this.state.lconteudo
+            conteudo: this.state.lconteudo,
+            fkUsuario: this.state.usuario
         }).then(function (response) {
             console.log(response);
         }).catch(function (error) {
@@ -54,9 +56,9 @@ export default class Main extends Component {
                 <div className="newPost">
                     <div>
                         <h6>Matheus Ferreira</h6>
-                        <form id="novo">
+                        <form>
                             <label for=""></label>
-                            <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo} id="conteudo"></textarea>
+                            <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>
                         </form>
                         <button onClick={this.createPosts}>Criar Post</button>
                     </div>
@@ -67,7 +69,7 @@ export default class Main extends Component {
                             <div className="profile-post">
                                 <img src="images/sem-perfil.jpg"></img>
                                 <div className="profile-post-name">
-                                    <h5>Matheus Ferreira</h5>
+                                    <h5>{post.usuario.firstName} {post.usuario.lastName}</h5>
                                     <h6>{post.createdAt}</h6>
                                 </div>
                             </div>

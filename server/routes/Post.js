@@ -8,7 +8,7 @@ Post.route('/')
     .get(controllers.getAll);
 
 Post.route('/:id')
-    .post(controllers.getById)
+    .post(controllers.getByFk)
     .delete(controllers.delete)
     .put(controllers.update);
 

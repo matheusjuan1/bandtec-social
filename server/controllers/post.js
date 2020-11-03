@@ -1,12 +1,12 @@
 const Post = require("../models/post");
-const Usuario = require("../models/usuario");
+const usuarios = require("../models/usuario");
 
 module.exports = {
     add: function (req, res) {
 
         Post.create({
             conteudo: req.body.conteudo,
-            id_usuario: req.body.idusuario
+            usuarioId: req.body.fkUsuario
         }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function () {
@@ -16,25 +16,30 @@ module.exports = {
     },
     getAll: function (req, res) {
         Post.findAll({
-            // include: {
-            //     model: Usuario
-            // },
-            order: [['createdAt', 'DESC']]  
+            order: [['createdAt', 'DESC']],
+            include: [{
+                model: usuarios,
+                as: 'usuario'
+            }] 
         }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function (err) {
             res.status(400).send(err)
         })
     },
-    getById: function (req, res) {
-        Post.findOne({
+    getByFk: function (req, res) {
+        Post.findAll({
             where: {
-                id: req.params.id
+                usuarioId: req.params.id
+            },
+            include: {
+                model: usuarios,
+                as: 'usuario'
             }
         }).then(function (Post) {
             res.status(200).json(Post)
-        }).catch(function () {
-            res.status(400).send("Erro")
+        }).catch(function (err) {
+            res.status(400).send(err)
         })
     },
     delete: function (req, res) {
