@@ -19,8 +19,9 @@ module.exports = {
             order: [['createdAt', 'DESC']],
             include: [{
                 model: usuarios,
-                as: 'usuario'
-            }] 
+                as: 'usuario',
+                attributes: ['id','firstName','lastName','ftperfil']
+            }]      
         }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function (err) {
@@ -29,6 +30,7 @@ module.exports = {
     },
     getByFk: function (req, res) {
         Post.findAll({
+            order: [['createdAt', 'DESC']],
             where: {
                 usuarioId: req.params.id
             },

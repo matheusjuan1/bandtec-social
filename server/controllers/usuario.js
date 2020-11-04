@@ -1,4 +1,5 @@
 const Usuario = require("../models/usuario");
+const jwt = require('jsonwebtoken')
 
 module.exports = {
     addUser: function(req, res) {
@@ -32,7 +33,17 @@ module.exports = {
                 res.send("Senha errada")
             }
             else {
-                res.json(usuario)
+                const token = jwt.sign({
+                   idUsuario: usuario.id,
+                   email: usuario.email,
+                   firstName: usuario.firstName,
+                   lastName: usuario.lastName,
+                   dataNasc: usuario.dataNasc,
+                   cargo: usuario.cargo,
+                   celular: usuario.celular,
+                   sexo: usuario.sexo
+                }, 'process.env.JWT_KEY', {expiresIn: "1d"}) 
+                res.json(token);
             }
         }).catch(function () {
             res.status(400).send("Erro")

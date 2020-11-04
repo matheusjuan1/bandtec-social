@@ -39,7 +39,7 @@ const usuario = database.sequelize.define('usuario', {
     ftperfil: {
         type: database.Sequelize.STRING,
         allowNull: false,
-        defaultValue:"../../public/images/sem-perfil.jpg"
+        defaultValue:"images/sem-perfil.jpg"
     },
 }, {
     //
