@@ -3,6 +3,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Main from './pages/Main';
 import Profile from './pages/Profile';
+import Cadastro from './pages/Cadastro';
+import Login from './pages/Login';
 
 
 
@@ -13,8 +15,8 @@ function Routes() {
             <Switch>
                 <Route exact path="/" component={Main} />
                 <Route exact path="/perfil" component={Profile} />
-                <Route exact path="/cadastro" component={Main} />
-                <Route exact path="/login" component={Main} />
+                <Route exact path="/cadastro" component={Cadastro} />
+                <Route exact path="/login" component={Login} />
             </Switch>
         </BrowserRouter>
     )

@@ -1,5 +1,5 @@
 const Usuario = require("../models/usuario");
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 module.exports = {
     addUser: function(req, res) {

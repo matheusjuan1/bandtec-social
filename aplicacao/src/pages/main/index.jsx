@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
+
 import './styles.css';
+
+import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
 
 
 export default class Main extends Component {
@@ -24,8 +28,8 @@ export default class Main extends Component {
 
 
     loadPosts = async () => {
-        const response = await api.get('/');
-        this.setState({ posts: response.data });
+        const res = await api.get('/');
+        this.setState({ posts: res.data });
     }
 
     createPosts = async () => {
@@ -33,8 +37,8 @@ export default class Main extends Component {
            await api.post('/', {
             conteudo: this.state.lconteudo,
             fkUsuario: this.state.usuario
-        }).then(function (response) {
-            console.log(response);
+        }).then(function (res) {
+            console.log(res);
         }).catch(function (error) {
             console.log(error);
         });
@@ -53,6 +57,7 @@ export default class Main extends Component {
     render() {
         return (
             <div className="mainSession">
+                <Header />
                 <div className="newPost">
                     <div>
                         <h6>Matheus Ferreira</h6>
@@ -77,6 +82,7 @@ export default class Main extends Component {
                         </article>
                     ))}
                 </div>
+                <NavBar />
             </div>
         )
     }

@@ -1,0 +1,51 @@
+.camposCadastro {
+    padding: 0;
+    text-align: center;
+}
+
+.camposCadastro h1{
+    font-size: 5vmin;
+    margin-top: 0;
+}
+
+.camposCadastro label {
+    font-size: 2.3vmin;
+}
+
+.camposCadastro input{
+    margin: 1vmin 0;
+    background-color: transparent;
+    border-radius: 5px;
+    width: 40vmin;
+    height: 4vmin;
+    outline: none;
+    border: #00BACF 2px solid;
+    padding: 1vmin 1.5vmin;
+    font-size: 2vmin;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+}
+
+.camposCadastro input:hover {
+    border: #FF005C 2px solid;
+}
+
+.camposCadastro input:focus {
+    border: #FF005C 2px solid;
+}
+
+button {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: white;
+    background-color: #FF005C;
+    outline: none;
+    border: none;
+    width: 20vmin;
+    height: 7vmin;
+    border-radius: 8px;
+    margin: 3vmin;
+    cursor: pointer;
+}

@@ -1,17 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
-
-body {
-    background-color: #232323;
-    height: 100vh;
-    font-family: 'Exo 2', sans-serif;
-    overflow-x: hidden;
-    color: white;
-}
 
 
 .corpoLogin img{
@@ -99,14 +85,6 @@ body {
 
 /* Cadastro */
 
-#imageSocial {
-    width: 25vmin;
-    margin: 4vmin 0 0 0;
-}
-
-.corpoCadastro {
-    display: flex;
-}
 
 .camposCadastro {
     padding: 0 5vmin;
@@ -146,7 +124,7 @@ body {
     box-shadow: 0px 0px 13px #FF005C;
 }
 
-.previa button {
+button {
     font-family: 'Exo 2', sans-serif;
     font-size: 3vmin;
     font-weight: bold;

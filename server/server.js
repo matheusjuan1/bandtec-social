@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 const PostRoutes = require('./routes/Post');
 const UsuarioRoutes = require('./routes/Usuario');
+const login = require('./middleware/login');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -13,7 +14,7 @@ app.use(cors());
 
 // 
 
-app.use('/post', PostRoutes);
+app.use('/post', PostRoutes, login);
 
 app.use('/usuario', UsuarioRoutes);
 

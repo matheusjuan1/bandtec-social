@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 import './styles.css';
 
+import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
+
 export default class Profile extends Component {
 
     state = {
@@ -25,6 +28,7 @@ export default class Profile extends Component {
     render() {
         return (
             <div className="mainSession">
+                <Header />
                 <div className="perfil">
                     <img src="images/sem-perfil.jpg" />
                     <div>
@@ -50,6 +54,7 @@ export default class Profile extends Component {
                         </article>
                     ))}
                 </div>
+                <NavBar />
             </div>
         )
     }
