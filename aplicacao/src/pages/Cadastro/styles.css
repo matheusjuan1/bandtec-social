@@ -35,7 +35,7 @@
     border: #FF005C 2px solid;
 }
 
-button {
+.camposCadastro button {
     font-family: 'Exo 2', sans-serif;
     font-size: 3vmin;
     font-weight: bold;

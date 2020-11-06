@@ -1,0 +1,59 @@
+.mainLogin {
+    background-color: transparent;
+    border: #00BACF 3px solid;
+    border-radius: 20px;
+    width: 30vw;
+    margin-left: 35vw;
+    margin-top: 7vh;
+    height: 60vh;
+    transition: 0.6s;
+    text-align: center;
+}
+
+
+.mainLogin i {
+    color: #00BACF;
+    font-size: 7vmin;
+    margin: 3vmin 0;
+}
+
+.mainLogin a {
+    margin: 2vmin 0;
+}
+
+.mainLogin input {
+    margin: 2vmin 0;
+    background-color: transparent;
+    border-radius: 5px;
+    width: 60%;
+    height: 5%;
+    outline: none;
+    border: #00BACF 2px solid;
+    padding: 1vmin 1.5vmin;
+    font-size: 2vmin;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+}
+
+.mainLogin input:hover {
+    border: #FF005C 2px solid;
+}
+
+.mainLogin input:focus {
+    border: #FF005C 2px solid;
+}
+
+.mainLogin button {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: white;
+    background-color: #FF005C;
+    outline: none;
+    border: none;
+    padding: 1.3vmin 1.7vmin;
+    border-radius: 8px;
+    margin: 3vmin;
+    cursor: pointer;
+}

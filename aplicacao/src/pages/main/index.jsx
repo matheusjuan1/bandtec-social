@@ -18,7 +18,7 @@ export default class Main extends Component {
     state = {
         posts: [],
         lconteudo: '',
-        usuario: 2
+        usuario: 1
     };
 
     componentDidMount() {
@@ -60,7 +60,7 @@ export default class Main extends Component {
                 <Header />
                 <div className="newPost">
                     <div>
-                        <h6>Matheus Ferreira</h6>
+                        <h6>Matheus Juan</h6>
                         <form>
                             <label for=""></label>
                             <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>

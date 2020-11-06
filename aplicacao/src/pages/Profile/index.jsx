@@ -18,7 +18,7 @@ export default class Profile extends Component {
     }
 
     loadPosts = async () => {
-        const response = await api.post('/2');
+        const response = await api.post('/1');
         this.setState({
             posts: response.data,
             usuario: response.data[0].usuario
