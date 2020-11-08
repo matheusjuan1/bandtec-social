@@ -3,15 +3,32 @@ const usuarios = require("../models/usuario");
 
 module.exports = {
     add: function (req, res) {
+        let requests = {}
+        if (req.body.image == "1") {
+            const { originalname: imageName = "", key: imageKey = "", location: imageUrl = "" } = req.file
+            requests = {
+                conteudo: req.body.conteudo,
+                image: req.body.image,
+                imageName,
+                imageKey,
+                imageUrl,
+                usuarioId: req.body.fkUsuario
+            }
+        } else {
+            requests = {
+                conteudo: req.body.conteudo,
+                image: req.body.image,
+                usuarioId: req.body.fkUsuario
+            }
+        }
 
-        Post.create({
-            conteudo: req.body.conteudo,
-            usuarioId: req.body.fkUsuario
-        }).then(function (Post) {
-            res.status(200).json(Post)
-        }).catch(function () {
-            res.status(400).send();
-        });
+        Post.create(requests)
+            .then(function (Post) {
+                res.status(200).json(Post),
+                    console.log(req.file)
+            }).catch(function () {
+                res.status(400).send();
+            });
 
     },
     getAll: function (req, res) {
@@ -20,8 +37,8 @@ module.exports = {
             include: [{
                 model: usuarios,
                 as: 'usuario',
-                attributes: ['id','firstName','lastName','ftperfil']
-            }]      
+                attributes: ['id', 'firstName', 'lastName', 'ftperfil']
+            }]
         }).then(function (Post) {
             res.status(200).json(Post)
         }).catch(function (err) {
@@ -51,8 +68,8 @@ module.exports = {
             }
         }).then(function (Post) {
             res.status(200).json(Post)
-        }).catch(function () {
-            res.status(400).send("Erro")
+        }).catch(function (err) {
+            res.status(400).send(err)
         })
     },
     update: function (req, res) {

@@ -42,7 +42,7 @@ module.exports = {
                    cargo: usuario.cargo,
                    celular: usuario.celular,
                    sexo: usuario.sexo
-                }, 'process.env.JWT_KEY', {expiresIn: "1d"}) 
+                }, process.env.JWT_KEY, {expiresIn: "1d"}) 
                 res.json(token);
             }
         }).catch(function () {
