@@ -2,7 +2,7 @@
   "name": "bandtec-social",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "front-end",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -24,8 +24,10 @@
     "history": "^4.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-dropzone": "^11.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.2.1"
   },
   "browserslist": {
     "production": [

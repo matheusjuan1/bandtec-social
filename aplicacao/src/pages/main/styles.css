@@ -13,11 +13,33 @@
     text-align: left;
     display: grid;
 }
+
+.post-image {
+    position: relative;
+    width: 100%;
+    margin: 2.3vmin 0 1vmin 0;
+    height: 80vmin;
+    overflow: hidden;
+    border-radius: 2.5vmin;
+}
+
+.post-image img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+}
+
 .profile-post {
     float: left;
     display: flex;
     margin-bottom: 1vmin;
 }
+
 .profile-post img {
     width: 30px;
     height: 30px;
@@ -47,13 +69,12 @@ textarea {
     font-family: 'Exo 2', sans-serif;
 }
 
-
 .newPost h6 {
     text-align: left;
     margin: 0.8vmin;
 }
 
-.newPost button{
+.newPost button {
     font-family: 'Exo 2', sans-serif;
     font-size: 2vmin;
     font-weight: bold;

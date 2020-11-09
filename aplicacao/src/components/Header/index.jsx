@@ -1,10 +1,10 @@
 import React from 'react';
-import './styles.css';
+import * as S from './styles';
 
 const Header = () => (
-    <header id="main-header">
-        <img id="logo" src="./images/logo.png"></img>
-    </header>
+    <S.Header id="main-header">
+        <img src="./images/logo.png"></img>
+    </S.Header>
 );
 
 export default Header;

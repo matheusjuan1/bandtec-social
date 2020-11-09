@@ -3,6 +3,8 @@ import api from '../../services/api';
 
 import './styles.css';
 
+import Upload from '../../components/Upload';
+
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
 
@@ -11,10 +13,10 @@ export default class Main extends Component {
 
     constructor(props) {
         super(props);
-    
+
         this.handleChange = this.handleChange.bind(this);
     }
-    
+
     state = {
         posts: [],
         lconteudo: '',
@@ -34,23 +36,23 @@ export default class Main extends Component {
 
     createPosts = async () => {
         if (this.state.lconteudo !== '') {
-           await api.post('/', {
-            conteudo: this.state.lconteudo,
-            fkUsuario: this.state.usuario
-        }).then(function (res) {
-            console.log(res);
-        }).catch(function (error) {
-            console.log(error);
-        });
-        this.setState({ lconteudo: ''});
-        this.componentDidMount(); 
-        } 
+            await api.post('/', {
+                conteudo: this.state.lconteudo,
+                fkUsuario: this.state.usuario
+            }).then(function (res) {
+                console.log(res);
+            }).catch(function (error) {
+                console.log(error);
+            });
+            this.setState({ lconteudo: '' });
+            this.componentDidMount();
+        }
     }
 
 
 
     handleChange(event) {
-        this.setState({ lconteudo: event.target.value});
+        this.setState({ lconteudo: event.target.value });
     }
 
 
@@ -64,6 +66,7 @@ export default class Main extends Component {
                         <form>
                             <label for=""></label>
                             <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>
+                            <Upload />
                         </form>
                         <button onClick={this.createPosts}>Criar Post</button>
                     </div>
@@ -78,7 +81,14 @@ export default class Main extends Component {
                                     <h6>{post.createdAt}</h6>
                                 </div>
                             </div>
-                            <p>{post.conteudo}</p>
+                            <p>
+                                {post.conteudo}
+                                {post.image ? 
+                                    <div className="post-image">
+                                        <img src={post.imageUrl} />
+                                    </div> : ''
+                                }
+                            </p>
                         </article>
                     ))}
                 </div>
