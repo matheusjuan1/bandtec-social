@@ -1,12 +1,13 @@
 import React from 'react';
-import * as S from './styles';
+import { Link } from 'react-router-dom';
+import * as S from './style';
 
 const NavBar = () => (
-    <S.NavBar>
+    <S.NavBar hidden="" >
         <S.Items>
-            <li><i class="fas fa-home"></i></li>
-            <li><i class="fas fa-plus-square"></i></li>
-            <li><i class="fas fa-user-alt"></i></li>
+            <Link to="/"><li><i className="fas fa-home"></i></li></Link>
+            <Link to="/"><li><i className="fas fa-plus-square"></i></li></Link>
+            <Link to="/perfil"><li><i className="fas fa-user-alt"></i></li></Link>
         </S.Items>
     </S.NavBar>
 );

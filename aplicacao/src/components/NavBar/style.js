@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+
+
 export const NavBar = styled.nav`
     height: 7vmin;
     width: 100%;
@@ -31,4 +33,6 @@ export const Items = styled.ul`
     li {
         list-style: none;
     }
+
+    
 `;

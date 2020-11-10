@@ -4,7 +4,7 @@ import api from '../../services/api';
 import './styles.css';
 
 import Upload from '../../components/Upload';
-
+import FileList from '../../components/FileList'
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
 
@@ -67,6 +67,7 @@ export default class Main extends Component {
                             <label for=""></label>
                             <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>
                             <Upload />
+                            <FileList />
                         </form>
                         <button onClick={this.createPosts}>Criar Post</button>
                     </div>

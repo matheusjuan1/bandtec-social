@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './styles';
+import * as S from './style';
 
 const Header = () => (
     <S.Header id="main-header">
