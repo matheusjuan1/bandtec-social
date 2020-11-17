@@ -8,12 +8,12 @@ import Login from './pages/Login';
 
 import { isAuthenticated } from './auth';
 
-const PrivateRoute = ({ component: Component, ... rest}) => (
-    <Route { ... rest } render={props => (
+const PrivateRoute = ({component: Component, ...rest}) => (
+    <Route {...rest } render={props => (
         isAuthenticated() ? (
-            <Component {... props} />
+            <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: '/login', state: {from: props.location}}} />
+            <Redirect to={{pathname: '/login', state: {from: props.location}}} />
         )
         
     )} />

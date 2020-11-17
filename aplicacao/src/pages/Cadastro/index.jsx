@@ -1,68 +1,110 @@
-import React, { Component } from 'react';
-import './styles.css';
-import user from '../../services/apiUser';
+import React from "react";
+import "./styles.css";
+import user from "../../services/apiUser";
+import { useHistory } from "react-router-dom";
 
-import Header from '../../components/Header';
+import Header from "../../components/Header";
+import { Input } from "../../components/Form/Input/Input";
+import { Select } from "../../components/Form/Select/Select";
 
-export default class Cadastro extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Cadastro = () => {
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [celular, setCelular] = React.useState("");
+  const [cargo, setCargo] = React.useState("");
+  const [sexo, setSexo] = React.useState("");
+  const [dataNasc, setDataNasc] = React.useState("");
+  const [senha, setSenha] = React.useState("");
+  const [confirSenha, setConfirSenha] = React.useState("");
 
-    register = async () => {
-        await user.post('/cadastrar', {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            email: this.state.email,
-            celular: this.state.celuar,
-            cargo: this.state.cargo,
-            sexo: this.state.sexo,
-            dataNasc: this.state.dataNasc,
-            senha: this.state.senha
-        }).then(function (res) {
-            console.log("Deu certo");
-        }).catch(function (erro) {
-            console.log(erro)
-        })
-    }
+  const history = useHistory();
 
-    check() {
-        //
-    }
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await user
+      .post("/cadastrar", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        celular: celular,
+        cargo: cargo,
+        sexo: sexo,
+        dataNasc: dataNasc,
+        senha: senha,
+      })
+      .then(function (res) {
+        history.push("/login");
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
 
-    render() {
-        return (
-            <div>
-                <Header />
-                <div className="camposCadastro">
-                    <h1>Bem-vindo(a)!</h1>
-                    <form id="cadastro" ation="/cadasctro" method="POST">
-                        <label for="">Primeiro Nome:</label><br />
-                        <input type="text" name="firstName" id="priNome" /><br />
-                        <label for="">Segundo Nome:</label><br />
-                        <input type="text" name="lastName" id="segNome" /><br />
-                        <label for="">E-mail BandTec:</label><br />
-                        <input type="email" name="email" id="email" /><br />
-                        <label for="">Celular:</label><br />
-                        <input name="celular" type="text" /><br />
-                        <label for="" >Cargo:</label><br />
-                        <input type="text" name="cargo" id="cargo" /><br />
-                        <label for="">Sexo:</label><br />
-                        <select name="sexo" id="">
-                            <option value="feminino">Feminino</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="outro">Outro</option>
-                        </select><br />
-                        <label for="">Data de Nascimento:</label><br />
-                        <input name="dataNasc" id="dataNasc" type="date" /><br />
-                        <label for="">Senha:</label><br />
-                        <input type="text" name="senha" /><br />
-                        <label for="">Confirme sua senha:</label><br />
-                        <input type="text" name="confirSenha" /><br />
-                    </form>
-                    <button>Cadastrar</button>
-                </div>
-            </div>
-        )
-    }
-}
+  return (
+    <>
+      <Header />
+      <div className="camposCadastro">
+        <h1>Bem-vindo(a)!</h1>
+        <form onSubmit={handleSubmit}>
+          <Input
+            id="firstName"
+            label="Primeiro Nome"
+            value={firstName}
+            setValue={setFirstName}
+          />
+          <Input
+            id="lastName"
+            label="Segundo Nome"
+            value={lastName}
+            setValue={setLastName}
+          />
+          <Input
+            id="email"
+            type="email"
+            label="E-mail BandTec"
+            value={email}
+            setValue={setEmail}
+          />
+          <Input
+            id="celular"
+            label="Celular"
+            value={celular}
+            setValue={setCelular}
+          />
+          <Input id="cargo" label="Cargo" value={cargo} setValue={setCargo} />
+          <Select
+            label="Sexo"
+            options={["Feminino", "Masculino", "Outro"]}
+            value={sexo}
+            setValue={setSexo}
+          />
+          <Input
+            id="dataNasc"
+            type="date"
+            label="Data de Nascimento"
+            value={dataNasc}
+            setValue={setDataNasc}
+          />
+          <Input
+            id="senha"
+            type="password"
+            label="Senha"
+            value={senha}
+            setValue={setSenha}
+          />
+          <Input
+            id="confirmSenha"
+            type="password"
+            label="Confirme a senha"
+            value={confirSenha}
+            setValue={setConfirSenha}
+          />
+          <button>Cadastrar</button>
+        </form>
+      </div>
+    </>
+  );
+};
+
+export default Cadastro;

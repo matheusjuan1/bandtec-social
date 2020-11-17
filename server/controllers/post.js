@@ -24,8 +24,7 @@ module.exports = {
 
         Post.create(requests)
             .then(function (Post) {
-                res.status(200).json(Post),
-                    console.log(req.file)
+                res.status(201).json(Post)
             }).catch(function () {
                 res.status(400).send();
             });
@@ -67,7 +66,7 @@ module.exports = {
                 id: req.params.id
             }
         }).then(function (Post) {
-            res.status(200).json(Post)
+            res.status(202).json(Post)
         }).catch(function (err) {
             res.status(400).send(err)
         })

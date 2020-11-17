@@ -7,6 +7,7 @@ import Upload from '../../components/Upload';
 import FileList from '../../components/FileList'
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
+// import NewPost from '../../components/NewPost';
 
 
 export default class Main extends Component {
@@ -15,18 +16,24 @@ export default class Main extends Component {
         super(props);
 
         this.handleChange = this.handleChange.bind(this);
+        // const [conteudo, setConteudo ] = React.useState('');
     }
 
     state = {
         posts: [],
         lconteudo: '',
-        usuario: 1
+        usuario: 1,
+        uploadFile: []
     };
+
 
     componentDidMount() {
         this.loadPosts();
     }
 
+    handleUpload = files => {
+        console.log(files)
+    }
 
 
     loadPosts = async () => {
@@ -60,13 +67,14 @@ export default class Main extends Component {
         return (
             <div className="mainSession">
                 <Header />
+                {/* <NewPost setConteudo={this.setConteudo} /> */}
                 <div className="newPost">
                     <div>
                         <h6>Matheus Juan</h6>
                         <form>
                             <label for=""></label>
                             <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>
-                            <Upload />
+                            <Upload onUpload={this.handleUpload}/>
                             <FileList />
                         </form>
                         <button onClick={this.createPosts}>Criar Post</button>
@@ -76,7 +84,7 @@ export default class Main extends Component {
                     {this.state.posts.map(post => (
                         <article key={post.id} className="post">
                             <div className="profile-post">
-                                <img src="images/sem-perfil.jpg"></img>
+                                <img alt='' src="images/sem-perfil.jpg"></img>
                                 <div className="profile-post-name">
                                     <h5>{post.usuario.firstName} {post.usuario.lastName}</h5>
                                     <h6>{post.createdAt}</h6>
@@ -86,14 +94,14 @@ export default class Main extends Component {
                                 {post.conteudo}
                                 {post.image ? 
                                     <div className="post-image">
-                                        <img src={post.imageUrl} />
+                                        <img alt='' src={post.imageUrl} />
                                     </div> : ''
                                 }
                             </p>
                         </article>
                     ))}
                 </div>
-                <NavBar />
+                <NavBar pagina="home" />
             </div>
         )
     }

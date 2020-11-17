@@ -25,6 +25,11 @@ export const Items = styled.ul`
         color: #00BACF;
         text-shadow: #00BACF 0px 0px 3px;
     }
+    .ativo {
+        border-top: #00BACF 3px solid;
+        color: #00BACF;
+        text-shadow: #00BACF 0px 0px 3px;
+    }
     i {
         font-size: 3.5vmin;
         padding: 1.5vmin 0;

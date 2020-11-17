@@ -30,7 +30,7 @@ export default class Profile extends Component {
             <div className="mainSession">
                 <Header />
                 <div className="perfil">
-                    <img src="images/sem-perfil.jpg" />
+                    <img alt='' src="images/sem-perfil.jpg" />
                     <div>
                         <h3>{this.state.usuario.firstName} {this.state.usuario.lastName}</h3>
                         <button>Editar Perfil</button>
@@ -44,7 +44,7 @@ export default class Profile extends Component {
                     {this.state.posts.map(post => (
                         <article key={post.id} className="post">
                             <div className="profile-post">
-                                <img src="images/sem-perfil.jpg"></img>
+                                <img alt='' src="images/sem-perfil.jpg"></img>
                                 <div className="profile-post-name">
                                     <h5>{post.usuario.firstName} {post.usuario.lastName}</h5>
                                     <h6>{post.createdAt}</h6>
@@ -54,7 +54,7 @@ export default class Profile extends Component {
                         </article>
                     ))}
                 </div>
-                <NavBar />
+                <NavBar pagina="perfil"/>
             </div>
         )
     }
