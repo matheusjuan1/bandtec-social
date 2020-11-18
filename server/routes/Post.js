@@ -10,7 +10,7 @@ Post.route('/')
     .get( controllers.getAll);
 
 Post.route('/:id')
-    .post(login, controllers.getByFk)
+    .post(controllers.getByFk)
     .delete(controllers.delete)
     .put(login, controllers.update);
 

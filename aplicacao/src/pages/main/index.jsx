@@ -72,7 +72,7 @@ export default class Main extends Component {
                     <div>
                         <h6>Matheus Juan</h6>
                         <form>
-                            <label for=""></label>
+                            <label htmlFor=""></label>
                             <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>
                             <Upload onUpload={this.handleUpload}/>
                             <FileList />

@@ -3,7 +3,6 @@ import "./styles.css";
 import user from "../../services/apiUser";
 import { useHistory } from "react-router-dom";
 
-import Header from "../../components/Header";
 import { Input } from "../../components/Form/Input/Input";
 import { Select } from "../../components/Form/Select/Select";
 
@@ -43,7 +42,6 @@ const Cadastro = () => {
 
   return (
     <>
-      <Header />
       <div className="camposCadastro">
         <h1>Bem-vindo(a)!</h1>
         <form onSubmit={handleSubmit}>

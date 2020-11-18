@@ -1,47 +1,29 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import * as S from "./style";
 
-export default class NavBar extends Component {
-  // const { hidden } = () => {
-
-  // }
-  render() {
-    const ativoH = (props) => {
-      if (props.pagina === "home") {
-        return true;
-      }
-      return false;
-    };
-    const ativoP = (props) => {
-      if (props.pagina === "perfil") {
-        return true;
-      }
-      return false;
-    };
-
+const NavBar = () => {
     return (
-      <>
         <S.NavBar>
           <S.Items>
-            <Link to="/">
-              <li className={ativoH ? "ativo" : ""}>
+            <NavLink to="/">
+              <li >
                 <i className="fas fa-home"></i>
               </li>
-            </Link>
-            <Link to="/">
-              <li className={""}>
+            </NavLink>
+            <NavLink to="local">
+              <li>
                 <i className="fas fa-plus-square"></i>
               </li>
-            </Link>
-            <Link to="/perfil">
-              <li className={ativoP ? "ativo" : ""}>
+            </NavLink>
+            <NavLink to="perfil">
+              <li>
                 <i className="fas fa-user-alt"></i>
               </li>
-            </Link>
+            </NavLink>
           </S.Items>
         </S.NavBar>
-      </>
     );
-  }
 }
+
+export default NavBar;
