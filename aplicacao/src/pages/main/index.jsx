@@ -5,7 +5,6 @@ import './styles.css';
 
 import Upload from '../../components/Upload';
 import FileList from '../../components/FileList'
-import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
 // import NewPost from '../../components/NewPost';
 
@@ -66,7 +65,6 @@ export default class Main extends Component {
     render() {
         return (
             <div className="mainSession">
-                <Header />
                 {/* <NewPost setConteudo={this.setConteudo} /> */}
                 <div className="newPost">
                     <div>

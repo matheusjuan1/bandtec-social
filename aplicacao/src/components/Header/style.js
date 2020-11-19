@@ -6,28 +6,32 @@ export const Header = styled.header`
     position: fixed;
     width: 100%;
     z-index: 100;
-    background: white;
+    background: #232323;
     top: 0px;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
     height: 4rem;
+    color: white!important;
 
     img {
         height: 8vmin;
     }
 
     .login {
-        color: #333!important;
+        color: white!important;
+        display: flex;
+        align-items:center;
     }
 
-    .login::after {
-        content: '';
-        display: inline-block;
-        width: 14px;
-        height: 17px;
-        background: url("./assets/usuario.svg") no-repeat center center;
-        margin-left: .5rem
+    .usuarioSvg {
+        margin-left: .5rem;
+        position: relative;
+        top: .8px;
+        color: white;
     }
 
+`
+
+export const Nav = styled.nav`
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
 `

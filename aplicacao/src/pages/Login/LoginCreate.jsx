@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const LoginCreate = () => {
+function LoginCreate() {
     return (
         <div>
-            
+            Login CREATE
         </div>
     )
 }
+
+export default LoginCreate;

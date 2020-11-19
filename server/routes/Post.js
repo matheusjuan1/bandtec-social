@@ -12,7 +12,7 @@ Post.route('/')
 Post.route('/:id')
     .post(controllers.getByFk)
     .delete(controllers.delete)
-    .put(login, controllers.update);
+    .put(controllers.update);
 
 
 module.exports = Post;

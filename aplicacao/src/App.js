@@ -6,16 +6,20 @@ import { Router } from 'react-router-dom';
 import GlobalStyle from './styles/global.js';
 
 import history from './history';
-import { Header } from './components/Header/style';
+import Header from './components/Header';
+import { UserStorage } from './UserContext';
+
 
 
 const App = () => (
     <div className="App">
         <GlobalStyle />
-        <Header />
-        <Router history={history}>
-            <Routes />
-        </Router>
+        <UserStorage>
+            <Router history={history}>
+                <Header />
+                <Routes />
+            </Router>
+        </UserStorage>
     </div>
 );
 
