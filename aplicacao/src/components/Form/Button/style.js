@@ -6,7 +6,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 0.6rem;
     background-color: #FF005C;
-    color: white;
+    color: white!important;
     font-family: 'Exo 2', sans-serif;
     padding: .7rem 1.2rem;
     font-weight: bold;

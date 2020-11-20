@@ -73,23 +73,3 @@ textarea {
     text-align: left;
     margin: 0.8vmin;
 }
-
-.newPost button {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 2vmin;
-    font-weight: bold;
-    color: white;
-    background-color: #FF005C;
-    outline: none;
-    border: none;
-    width: 12vmin;
-    height: 5vmin;
-    border-radius: 8px;
-    margin: 1vmin;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.newPost button:hover {
-    transform: scale(1.05);
-}

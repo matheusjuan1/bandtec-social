@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom'
-import {logo} from '../../assets/logo.png';
+// import {logo} from '../../assets/logo.png';
 import {ReactComponent as Usuario} from '../../assets/usuario.svg'
 import { UserContext} from '../../UserContext'
 
@@ -15,8 +15,8 @@ const Header = () => {
             </Link>
             {dados ? (
             <Link className="login" to="/conta">
-                {dados.firstName + ' ' + dados.lastName} <Usuario  className="usuarioSvg"/>
-            </Link> ) : 
+                {dados.firstName + ' ' + dados.lastName} <Usuario  className="usuarioSvg"/>   
+            </Link>) : 
             (<Link className="login" to="/login">
                 Login/ Criar <Usuario  className="usuarioSvg"/>
             </Link> )}

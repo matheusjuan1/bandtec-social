@@ -11,7 +11,7 @@ export default createGlobalStyle`
     }
 
     body {
-        font-family: 'exo 2';
+        font-family: 'Exo 2', sans-serif;
         background-color: #fafafa;
         color: #333;
         text-rendering: optimizeLegibility;
@@ -20,6 +20,7 @@ export default createGlobalStyle`
     }
     a{
         text-decoration: none;
+        color: #333;
     }
 
     html, body, #boby {
@@ -36,9 +37,41 @@ export default createGlobalStyle`
         font-size: 1rem!important;
     }
 
+    .title {
+        line-height: 1;
+        font-size: 3rem;
+        margin: 1rem 0;
+        position: relative;
+    }
+    .title::after {
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color:#FF005C;
+        position: absolute;
+        bottom: 1.2px;
+        left: -5px;
+        border-radius: 0.2rem;
+        z-index: -1;
+    }
+
     .container {
         max-width: 65rem;
         padding: 0 1rem;
         margin: 0 auto;
+    }
+
+    .animeLeft {
+        opacity: 0;
+        transform:translateX(-20px);
+        animation: animeLeft .35s forwards;
+    }
+
+    @keyframes animeLeft {
+        to {
+            opacity: 1;
+            transform: initial;
+        }
     }
 `;

@@ -6,6 +6,7 @@ import './styles.css';
 import Upload from '../../components/Upload';
 import FileList from '../../components/FileList'
 import NavBar from '../../components/NavBar';
+import { Button } from '../../components/Form/Button/Button';
 // import NewPost from '../../components/NewPost';
 
 
@@ -75,7 +76,7 @@ export default class Main extends Component {
                             <Upload onUpload={this.handleUpload}/>
                             <FileList />
                         </form>
-                        <button onClick={this.createPosts}>Criar Post</button>
+                        <Button onClick={this.createPosts}>Criar Post</Button>
                     </div>
                 </div>
                 <div className="posts-list">

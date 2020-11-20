@@ -10,30 +10,14 @@ export const UserStorage = ({ children }) => {
     const [loading, setLoading] = React.useState(false);
     const [erro, setError] = React.useState(null);
 
-
-    React.useEffect(() => {
-        async function autoLogin() {
-            const token = window.localStorage.getItem('token');
-            if (token) {
-                try {
-                    setError(null);
-                    setLoading(true);
-                    const response = await user.get('/VALIDATE_JWT', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    })
-                    if (response.status !== 200) throw new Error('Token inválido');
-                    getUser(token);
-                } catch (error) {
-                    userLogout();
-                } finally {
-                    setLoading(false);
-                }
-            }
-        }
-        autoLogin()
+    const userLogout = React.useCallback(async function userLogout() {
+        setDados(null);
+        setLogin(false);
+        setError(null);
+        setLoading(false);
+        window.localStorage.removeItem('token');
     }, [])
+
 
     async function getUser(token) {
         const response = await user
@@ -69,13 +53,29 @@ export const UserStorage = ({ children }) => {
 
     }
 
-    async function userLogout() {
-        setDados(null);
-        setLogin(false);
-        setError(null);
-        setLoading(false);
-        window.localStorage.removeItem('token');
-    }
+    React.useEffect(() => {
+        async function autoLogin() {
+            const token = window.localStorage.getItem('token');
+            if (token) {
+                try {
+                    setError(null);
+                    setLoading(true);
+                    const response = await user.get('/VALIDATE_JWT', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    })
+                    if (response.status !== 200) throw new Error('Token inválido');
+                    getUser(token);
+                } catch (error) {
+                    userLogout();
+                } finally {
+                    setLoading(false);
+                }
+            }
+        }
+        autoLogin()
+    }, [userLogout])
 
     return (
         <UserContext.Provider value={{ dados, userLogin, userLogout, erro, loading, login }}>
