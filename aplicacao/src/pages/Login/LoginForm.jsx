@@ -9,7 +9,7 @@ function LoginForm() {
     const email = useForm('email');
     const password = useForm();
 
-    const {userLogin} = React.useContext(UserContext);
+    const {userLogin, erro, loading} = React.useContext(UserContext);
     
     // const history = useHistory();
 
@@ -26,7 +26,10 @@ function LoginForm() {
             <form onSubmit={handleSubmit}>
                 <Input id="email" label="Email Bandtec"  {...email}/>
                 <Input id="senha" type="password" label="Senha"  {...password}/>
-                <Button>Entrar</Button>
+                {!loading ? 
+                <Button>Entrar</Button> :
+                <Button disabled>Carregando...</Button>}
+                {erro && <p>{erro}</p>}
             </form>
             <Link to="/login/criar">Cadastro</Link>
         </section>

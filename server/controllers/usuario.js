@@ -25,12 +25,11 @@ module.exports = {
                 email: req.body.email,
             }
         }).then(async function (usuario) {
-            res.status(200);
             if (!usuario) {
-                res.send("Não tem usuário")
+                res.status(404).send("Email e/ou senha inválidos!")
             }
             else if (!await usuario.validPassword(req.body.senha)) {
-                res.send("Senha errada")
+                res.status(401).send("Email e/ou senha inválidos!")
             }
             else {
                 const token = jwt.sign({
@@ -43,7 +42,7 @@ module.exports = {
                    celular: usuario.celular,
                    sexo: usuario.sexo
                 }, process.env.JWT_KEY, {expiresIn: "1d"}) 
-                res.json(token);
+                res.status(200).json(token);
             }
         }).catch(function () {
             res.status(400).send("Erro")

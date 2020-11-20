@@ -1,7 +1,7 @@
 const express = require('express');
 const Usuario = express.Router();
 const controllers = require('../controllers/usuario');
-const login = require('../middleware/login');
+const token = require('../middleware/token');
 
 
 Usuario.route('/cadastrar')
@@ -11,7 +11,10 @@ Usuario.route('/autenticar')
     .post(controllers.authUser)
 
 Usuario.route('/AUTH_JWT')
-    .get(login);
+    .get(token.AUTH_JWT);
+
+Usuario.route('/VALIDATE_JWT')
+    .get(token.VALIDATE_JWT);
 
 
 module.exports = Usuario;
