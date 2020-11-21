@@ -53,23 +53,3 @@
 .profile-post h5 {
     margin: 0.2vmin 1.5vmin;
 }
-
-.newPost {
-    width: 60%;
-    margin: auto 20%;
-}
-
-textarea {
-    width: 100%;
-    resize: none;
-    height: 9vmin;
-    padding: 1vmin;
-    border: 1px solid silver;
-    border-radius: 2.5vmin;
-    font-family: 'Exo 2', sans-serif;
-}
-
-.newPost h6 {
-    text-align: left;
-    margin: 0.8vmin;
-}

@@ -17,6 +17,7 @@ export const Cadastro = styled.section`
     .forms {
         max-width:30rem;
         padding: 1.5rem;
+        padding-top: 0rem;
     }
 
     @media (max-width: 40rem) {

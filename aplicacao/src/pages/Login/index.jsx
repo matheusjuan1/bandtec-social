@@ -10,13 +10,12 @@ import { Error } from "../../components/Helper/Error/Error";
 import { UserContext } from "../../UserContext";
 
 const Login = () => {
-  const { login } = React.useContext(UserContext);
   const email = useForm("email");
   const password = useForm();
 
-  const { userLogin, erro, loading } = React.useContext(UserContext);
+  const { userLogin, erro, loading, login } = React.useContext(UserContext);
 
-  if (login === true) {
+  if (login) {
     return <Redirect to={{ pathname: "/" }} />;
   }
 
@@ -29,6 +28,7 @@ const Login = () => {
 
   return (
     <S.Login>
+      <S.Background></S.Background>
       <S.Section className="animeLeft forms">
         <h1 className="title">Login</h1>
         <form onSubmit={handleSubmit}>
@@ -47,11 +47,11 @@ const Login = () => {
         <S.Cadastro>
           <S.Subtitle>Cadastre-se</S.Subtitle>
           <p>Ainda não possui conta? Cadastre-se no site.</p>
-          <Button>
-            <Link style={{ color: "white" }} to="/login/criar">
+          <Link style={{ color: "white" }} to="/cadastro">
+            <Button>
               Cadastro
-            </Link>
           </Button>
+          </Link>
         </S.Cadastro>
       </S.Section>
     </S.Login>

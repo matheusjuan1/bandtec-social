@@ -6,19 +6,14 @@ export const Login = styled.section`
     grid-template-columns: 1fr 1fr;
     max-height: 100vh;
     gap: 2rem;
+    transition: .2s;
 
-    &::before {
-        display: block;
-        content: '';
-        background: url(${image}) no-repeat center center;
-        background-size: cover;
-        padding-left: 10px;
-        padding-top: 4rem;
-    }
 
     .forms {
         max-width:30rem;
         padding: 1.5rem;
+        padding-top: .8rem;
+        padding-bottom: 0rem;
     }
 
     @media (max-width: 40rem) {
@@ -32,6 +27,12 @@ export const Login = styled.section`
             max-width: 100%
         }
     }
+`
+
+export const Background = styled.div`
+    background: url(${image}) no-repeat center center;
+    background-size: cover;
+    padding-left: 50px;
 `
 
 export const Section = styled.section`
@@ -51,7 +52,7 @@ export const Section = styled.section`
 `;
 
 export const Cadastro = styled.div`
-  margin-top: 4rem;
+  margin-top: 3rem;
   
   p {
       margin-top: 2rem;

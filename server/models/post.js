@@ -54,6 +54,7 @@ post.beforeDestroy((post) => {
     console.log('ta executando')
 })
 
+post.belongsTo(post, {onDelete: 'CASCADE', hooks: true});
 
 post.belongsTo(usuario, { onDelete: 'CASCADE', hooks: true});
 

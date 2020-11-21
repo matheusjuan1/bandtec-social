@@ -1,100 +1,72 @@
-import React, { Component } from 'react';
+import React from 'react';
 import api from '../../services/api';
+import { UserContext } from "../../UserContext";
 
 import './styles.css';
 
-import Upload from '../../components/Upload';
-import FileList from '../../components/FileList'
 import NavBar from '../../components/NavBar';
-import { Button } from '../../components/Form/Button/Button';
-// import NewPost from '../../components/NewPost';
+// import { Button } from '../../components/Form/Button/Button';
+import NewPost from '../../components/NewPost';
 
 
-export default class Main extends Component {
+const Main = () => {
 
-    constructor(props) {
-        super(props);
-
-        this.handleChange = this.handleChange.bind(this);
-        // const [conteudo, setConteudo ] = React.useState('');
-    }
-
-    state = {
-        posts: [],
-        lconteudo: '',
-        usuario: 1,
-        uploadFile: []
-    };
+    const {dados} = React.useContext(UserContext);
+    const [posts, setPosts] = React.useState([]);
+    const [post, setPost] = React.useState('');
 
 
-    componentDidMount() {
-        this.loadPosts();
-    }
+    // uploadFile: []
 
-    handleUpload = files => {
-        console.log(files)
-    }
-
-
-    loadPosts = async () => {
+    async function loadPosts() {
         const res = await api.get('/');
-        this.setState({ posts: res.data });
+        setPosts(res.data);
     }
 
-    createPosts = async () => {
-        if (this.state.lconteudo !== '') {
+    React.useEffect(() => {
+        loadPosts();
+    }, [])
+
+    // handleUpload = files => {
+    //     console.log(files)
+    // }
+
+
+    async function createPost(event) {
+        event.preventDefault();
+        if (post !== '') {
             await api.post('/', {
-                conteudo: this.state.lconteudo,
-                fkUsuario: this.state.usuario
+                conteudo: post,
+                fkUsuario: dados.idUsuario
             }).then(function (res) {
                 console.log(res);
             }).catch(function (error) {
                 console.log(error);
             });
-            this.setState({ lconteudo: '' });
-            this.componentDidMount();
+            setPost('');
+            loadPosts();
         }
     }
 
-
-
-    handleChange(event) {
-        this.setState({ lconteudo: event.target.value });
-    }
-
-
-    render() {
         return (
             <div className="mainSession">
-                {/* <NewPost setConteudo={this.setConteudo} /> */}
-                <div className="newPost">
-                    <div>
-                        <h6>Matheus Juan</h6>
-                        <form>
-                            <label htmlFor=""></label>
-                            <textarea placeholder="No que você está pensando?" onChange={this.handleChange} value={this.state.lconteudo}></textarea>
-                            <Upload onUpload={this.handleUpload}/>
-                            <FileList />
-                        </form>
-                        <Button onClick={this.createPosts}>Criar Post</Button>
-                    </div>
-                </div>
-                <div className="posts-list">
-                    {this.state.posts.map(post => (
+                <NewPost setPost={setPost} post={post} dados={dados} createPost={createPost} />
+                <div className="posts-list animeTop">
+                    {posts.map(post => (
                         <article key={post.id} className="post">
                             <div className="profile-post">
-                                <img alt='' src="images/sem-perfil.jpg"></img>
+                                <img alt='' src={post.usuario.ftperfil}></img>
                                 <div className="profile-post-name">
-                                    <h5>{post.usuario.firstName} {post.usuario.lastName}</h5>
+                                    <h5>{post.usuario.name}</h5>
                                     <h6>{post.createdAt}</h6>
                                 </div>
                             </div>
                             <p>
                                 {post.conteudo}
-                                {post.image ? 
+                                {post.image && 
                                     <div className="post-image">
                                         <img alt='' src={post.imageUrl} />
-                                    </div> : ''
+                                    </div>
                                 }
                             </p>
                         </article>
@@ -103,7 +75,6 @@ export default class Main extends Component {
                 <NavBar pagina="home" />
             </div>
         )
-    }
-
-
 }
+
+export default Main;

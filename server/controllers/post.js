@@ -36,7 +36,7 @@ module.exports = {
             include: [{
                 model: usuarios,
                 as: 'usuario',
-                attributes: ['id', 'firstName', 'lastName', 'ftperfil']
+                attributes: ['id', 'name', 'ftperfil']
             }]
         }).then(function (Post) {
             res.status(200).json(Post)

@@ -4,8 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     addUser: function(req, res) {
         Usuario.create({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            name: req.body.name,
             email: req.body.email,
             celular: req.body.celular,
             cargo: req.body.cargo,
@@ -35,12 +34,12 @@ module.exports = {
                 const token = jwt.sign({
                    idUsuario: usuario.id,
                    email: usuario.email,
-                   firstName: usuario.firstName,
-                   lastName: usuario.lastName,
+                   name: usuario.name,
                    dataNasc: usuario.dataNasc,
                    cargo: usuario.cargo,
                    celular: usuario.celular,
-                   sexo: usuario.sexo
+                   sexo: usuario.sexo,
+                   ftperfil: usuario.ftperfil
                 }, process.env.JWT_KEY, {expiresIn: "1d"}) 
                 res.status(200).json(token);
             }

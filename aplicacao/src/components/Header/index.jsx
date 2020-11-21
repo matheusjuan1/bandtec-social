@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style';
-import { Link } from 'react-router-dom'
+import {NavLink } from 'react-router-dom'
 // import {logo} from '../../assets/logo.png';
 import {ReactComponent as Usuario} from '../../assets/usuario.svg'
 import { UserContext} from '../../UserContext'
@@ -10,16 +10,16 @@ const Header = () => {
     return (
     <S.Header >
         <S.Nav className="container">
-           <Link to="/" >
+           <NavLink to="/" >
             <img src="./images/logo.png" alt="" />
-            </Link>
+            </NavLink>
             {dados ? (
-            <Link className="login" to="/conta">
-                {dados.firstName + ' ' + dados.lastName} <Usuario  className="usuarioSvg"/>   
-            </Link>) : 
-            (<Link className="login" to="/login">
+            <NavLink className="login" to="perfil">
+                {dados.name} <img className="imgperfil" src={dados.ftperfil} alt=""/>   
+            </NavLink>) : 
+            (<NavLink className="login" to="login">
                 Login/ Criar <Usuario  className="usuarioSvg"/>
-            </Link> )}
+            </NavLink> )}
         </S.Nav>
         
     </S.Header>

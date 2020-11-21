@@ -12,11 +12,7 @@ const usuario = database.sequelize.define('usuario', {
         type: database.Sequelize.STRING,
         allowNull: false
     },
-    firstName: {
-        type: database.Sequelize.STRING,
-        allowNull: false
-    },
-    lastName: {
+    name: {
         type: database.Sequelize.STRING,
         allowNull: false
     },
@@ -39,7 +35,7 @@ const usuario = database.sequelize.define('usuario', {
     ftperfil: {
         type: database.Sequelize.STRING,
         allowNull: false,
-        defaultValue:"images/sem-perfil.jpg"
+        defaultValue:"http://localhost:3030/files/sem-perfil.jpg"
     },
 }, {
     //

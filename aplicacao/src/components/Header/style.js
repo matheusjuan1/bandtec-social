@@ -12,13 +12,25 @@ export const Header = styled.header`
     color: white!important;
 
     img {
-        height: 8vmin;
+        margin-top: .5rem;
+        height: 3rem;
     }
 
     .login {
         color: white!important;
         display: flex;
         align-items:center;
+        padding-top: 0.5rem
+    }
+
+    .imgperfil {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin-left: .5rem;
+        position: relative;
+        top: -3px;
+        border: #00bacf 2px solid;
     }
 
     .usuarioSvg {

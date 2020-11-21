@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import Upload from "../Upload";
+import React from "react";
+import { Button } from "../Form/Button/Button";
+// import Upload from "../Upload";
 import * as S from "./style";
 
-const NewPost = ({ setConteudo }) => {
+const NewPost = ({ post, setPost, dados, createPost }) => {
 
   function handleChange(event) {
-    setConteudo({conteudo: event.target.value})
+    setPost(event.target.value)
   }
 
 
     return (
-      <div  className="newPost">
+      <S.NewPost>
         <div>
-          <h6>Matheus Juan</h6>
-          <form>
-            <label for=""></label>
+          <h4>{dados && dados.name}</h4>
+          <form onSubmit={createPost}>
             <textarea
               placeholder="No que você está pensando?"
               onChange={handleChange}
-              // value={this.state.lconteudo}
+              value={post}
             ></textarea>
             {/* <Upload onUpload={this.handleUpload} /> */}
             {/* <FileList /> */}
+            <Button>Criar Post</Button>
           </form>
-          <button onClick={() => {}}>Criar Post</button>
         </div>
-      </div>
+      </S.NewPost>
     );
 }
 

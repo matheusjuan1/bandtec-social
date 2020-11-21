@@ -68,6 +68,18 @@ export default createGlobalStyle`
         animation: animeLeft .35s forwards;
     }
 
+    .animeTop {
+        opacity: 0;
+        transform:translateY(-20px);
+        animation: animeTop .8s forwards;
+    }
+    @keyframes animeTop {
+        to {
+            opacity: 1;
+            transform: initial;
+        }
+    }
+
     @keyframes animeLeft {
         to {
             opacity: 1;
