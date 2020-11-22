@@ -11,7 +11,7 @@ const s3 = new aws.S3();
 const post = database.sequelize.define('post', {
     conteudo: {
         type: database.Sequelize.STRING(700),
-        allowNull: false
+        allowNull: true
     },
     image: {
         type: database.Sequelize.BOOLEAN,

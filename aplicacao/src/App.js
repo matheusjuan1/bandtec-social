@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom';
 import GlobalStyle from './styles/global.js';
 
 import history from './history';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import { UserStorage } from './UserContext';
 
 

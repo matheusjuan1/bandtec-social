@@ -20,7 +20,8 @@ export const Header = styled.header`
         color: white!important;
         display: flex;
         align-items:center;
-        padding-top: 0.5rem
+        padding-top: 0.5rem;
+        cursor: pointer;
     }
 
     .imgperfil {
@@ -40,10 +41,62 @@ export const Header = styled.header`
         color: white;
     }
 
+    .navActive {
+        transition: .3s;
+        transform: initial;
+        opacity: 1;
+        z-index: 100;
+        pointer-events: all!important;
+    }
+
 `
 
 export const Nav = styled.nav`
     justify-content: space-between;
     display: flex;
     align-items: center;
+`
+
+export const NavM = styled.nav`
+    display: block;
+    position: absolute;
+    top: 48px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0, .2);
+    border-radius: .5rem;
+    transform: translateY(-10px);
+    opacity: 0;
+    color: #333;
+    padding: .5rem;
+    pointer-events: none;
+
+
+    a, button {
+        display: flex; 
+        align-items: center;
+        background: none;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: .5rem;
+        color: #333;
+        transition: .2s;
+        cursor: pointer!important;
+    }
+
+    a:focus, a:hover, button:focus, button:hover {
+        color: #FF005C;
+    }
+
+    p {
+        padding: .3rem;
+        padding-top: .5rem;
+    }
+
+    svg {
+        width: 22px;
+        height: auto;
+        margin-right: .5rem
+    }
 `

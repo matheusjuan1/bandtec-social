@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Post } from '../../components/Post/Post';
 import api from '../../services/api';
 import './styles.css';
 
-import NavBar from '../../components/NavBar';
 
 export default class Profile extends Component {
 
@@ -40,19 +40,9 @@ export default class Profile extends Component {
                 </div>
                 <div className="posts-list">
                     {this.state.posts.map(post => (
-                        <article key={post.id} className="post">
-                            <div className="profile-post">
-                                <img alt='' src="images/sem-perfil.jpg"></img>
-                                <div className="profile-post-name">
-                                    <h5>{post.usuario.firstName} {post.usuario.lastName}</h5>
-                                    <h6>{post.createdAt}</h6>
-                                </div>
-                            </div>
-                            <p>{post.conteudo}</p>
-                        </article>
+                        <Post key={post.id} post={post} />
                     ))}
                 </div>
-                <NavBar pagina="perfil"/>
             </div>
         )
     }

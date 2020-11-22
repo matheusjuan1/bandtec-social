@@ -1,80 +1,83 @@
-import React from 'react';
-import api from '../../services/api';
+import React from "react";
+import api from "../../services/api";
 import { UserContext } from "../../UserContext";
 
-import './styles.css';
 
-import NavBar from '../../components/NavBar';
-// import { Button } from '../../components/Form/Button/Button';
-import NewPost from '../../components/NewPost';
-
+import NewPost from "../../components/NewPost/NewPost";
+import { Post } from "../../components/Post/Post";
+import {useFetch} from "../../hooks/useFetch";
 
 const Main = () => {
+  const { dados } = React.useContext(UserContext);
+  const [posts, setPosts] = React.useState([]);
+  const [post, setPost] = React.useState("");
+  const [img, setImg] = React.useState(null);
+  const {loading, error, request} = useFetch();
 
-    const {dados} = React.useContext(UserContext);
-    const [posts, setPosts] = React.useState([]);
-    const [post, setPost] = React.useState('');
+  async function loadPosts() {
+    const res = await api.get("/");
+    setPosts(res.data);
+  }
+
+  React.useEffect(() => {
+    loadPosts();
+  }, []);
+
+  function handleUpload(files) {
+    console.log(files[0])
+    setImg({
+      preview: URL.createObjectURL(files[0]),
+      raw: files[0]
+    });
+  }
 
 
-    // uploadFile: []
-
-    async function loadPosts() {
-        const res = await api.get('/');
-        setPosts(res.data);
-    }
-
-    React.useEffect(() => {
-        loadPosts();
-    }, [])
-
-    // handleUpload = files => {
-    //     console.log(files)
-    // }
-
-
-    async function createPost(event) {
-        event.preventDefault();
-        if (post !== '') {
-            await api.post('/', {
-                conteudo: post,
-                fkUsuario: dados.idUsuario
-            }).then(function (res) {
-                console.log(res);
-            }).catch(function (error) {
-                console.log(error);
-            });
-            setPost('');
-            loadPosts();
+  async function createPost(event) {
+    event.preventDefault();
+      if (img) {
+        const formData = new FormData();
+        formData.append("file", img.raw);
+        if(post !== "") formData.append("conteudo", post);
+        formData.append("fkUsuario", dados.idUsuario);
+        formData.append("image", 1);
+        const req = api.post("/", formData);
+        const response = await request(req);
+        console.log(response);
+        setImg(null);
+        setPost("");
+      } else {
+        if(post !== "") {
+          await api.post("/", {
+          conteudo: post,
+          fkUsuario: dados.idUsuario,
+          });
+          setPost("");
         }
-    }
+      }
+      loadPosts();
+  }
 
-        return (
-            <div className="mainSession">
-                <NewPost setPost={setPost} post={post} dados={dados} createPost={createPost} />
-                <div className="posts-list animeTop">
-                    {posts.map(post => (
-                        <article key={post.id} className="post">
-                            <div className="profile-post">
-                                <img alt='' src={post.usuario.ftperfil}></img>
-                                <div className="profile-post-name">
-                                    <h5>{post.usuario.name}</h5>
-                                    <h6>{post.createdAt}</h6>
-                                </div>
-                            </div>
-                            <p>
-                                {post.conteudo}
-                                {post.image && 
-                                    <div className="post-image">
-                                        <img alt='' src={post.imageUrl} />
-                                    </div>
-                                }
-                            </p>
-                        </article>
-                    ))}
-                </div>
-                <NavBar pagina="home" />
-            </div>
-        )
-}
+  return (
+    <div className="container">
+      <NewPost
+        setPost={setPost}
+        post={post}
+        dados={dados}
+        createPost={createPost}
+        handleUpload={handleUpload}
+        dataimg={img}
+        setImg={setImg}
+        loading={loading}
+        error={error}
+      />
+      <hr></hr>
+      <div style={{margin: '1.5rem 0'}} className="animeTop">
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Main;

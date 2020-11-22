@@ -8,7 +8,7 @@ export default class Upload extends Component {
 
   renderDragMessage = (isDragActive, isDragReject) => {
     if (!isDragActive) {
-      return <UploadMessage>Arraste arquivos aqui...</UploadMessage>
+      return <UploadMessage>Arraste arquivos aqui ou clique...</UploadMessage>
     }
 
     if (isDragReject) {
@@ -20,6 +20,7 @@ export default class Upload extends Component {
 
   render() {
     const { onUpload } = this.props;
+
     return (
       <Dropzone accept='image/*' onDropAccepted={onUpload}>
         {( {getRootProps, getInputProps, isDragActive, isDragReject}) => (
