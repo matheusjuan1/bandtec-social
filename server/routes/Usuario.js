@@ -16,5 +16,8 @@ Usuario.route('/AUTH_JWT')
 Usuario.route('/VALIDATE_JWT')
     .get(token.VALIDATE_JWT);
 
+Usuario.route('/')
+    .get(controllers.getAll);
+
 
 module.exports = Usuario;

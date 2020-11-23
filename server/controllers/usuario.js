@@ -46,5 +46,15 @@ module.exports = {
         }).catch(function () {
             res.status(400).send("Erro")
         })
+    },
+
+    getAll: async function(req, res) {
+        await Usuario.findAll({
+            attributes: ['id', 'name', 'email', 'cargo', 'ftperfil']
+        }).then(function (req) {
+            res.status(200).json(req)
+        }).catch(function (erro) {
+            res.status(400).send(erro)
+        })
     }
 }

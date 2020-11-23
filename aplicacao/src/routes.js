@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import PrivateRoute from './PrivateRoute';
+import Comunidade from './pages/Comunidade';
 
 
 
@@ -15,6 +16,7 @@ function Routes() {
             <Switch>
                 <Route exact path="/" component={Main} />
                 <PrivateRoute exact path="/perfil" component={Profile} />
+                <Route exact path="/comunidade" component={Comunidade} />
                 <Route exact path="/cadastro" component={Cadastro} />
                 <Route exact path="/login/" component={Login} />
             </Switch>

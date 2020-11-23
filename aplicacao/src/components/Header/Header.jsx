@@ -25,7 +25,7 @@ const Header = () => {
                     <User />
                     Minha Conta
                 </NavLink>
-                <NavLink to="/moodle">
+                <NavLink to="/comunidade">
                     <Users />
                     BandTechrs
                 </NavLink>
