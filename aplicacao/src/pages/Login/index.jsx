@@ -5,7 +5,7 @@ import * as S from "./style";
 
 import { Button } from "../../components/Form/Button/Button";
 import { Input } from "../../components/Form/Input/Input";
-import { Error } from "../../components/Helper/Error/Error";
+import { Error } from "../../components/Helper/Error";
 
 import { UserContext } from "../../UserContext";
 

@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = {
     addUser: function(req, res) {
-        Usuario.create({
+        let requests = {
             name: req.body.name,
             email: req.body.email,
             celular: req.body.celular,
@@ -11,7 +11,14 @@ module.exports = {
             sexo: req.body.sexo,
             dataNasc: req.body.dataNasc,
             password: req.body.senha
-        }).then(function (Usuario) {
+        }
+        if (req.file) {
+            const {key: imageKey = "", location: imageUrl} = req.file
+            requests.ftperfil = imageUrl
+            requests.imageKey = imageKey
+        }
+
+        Usuario.create(requests).then(function (Usuario) {
             res.status(200).json(Usuario)
         }).catch(function () {
             res.status(400).send("Erro: Cadastro não foi realizado");

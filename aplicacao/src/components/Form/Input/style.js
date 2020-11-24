@@ -32,5 +32,5 @@ export const Label = styled.label`
     display: block;
     font-size: 1rem;
     line-height: 1;
-    padding-bottom: .5rem;
+    padding-bottom: .4rem;
 `

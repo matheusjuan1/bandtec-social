@@ -5,7 +5,7 @@ import { Input } from "../../components/Form/Input/Input";
 import { Select } from "../../components/Form/Select/Select";
 import * as S from "./style";
 import { Button } from "../../components/Form/Button/Button";
-import {Error} from "../../components/Helper/Error/Error"
+import {Error} from "../../components/Helper/Error"
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../UserContext";
 import { useFetch } from "../../hooks/useFetch";
@@ -19,6 +19,7 @@ const Cadastro = () => {
   const dataNasc = useForm();
   const senha = useForm("senha");
   const confirSenha = useForm("senha");
+  const [img, setImg] = React.useState({})
 
   const { userLogin, login } = React.useContext(UserContext);
   const { loading, error, request, setError } = useFetch();
@@ -27,19 +28,27 @@ const Cadastro = () => {
     return <Redirect to={{ pathname: "/" }} />;
   }
 
+  function handleChangeImg({target}) {
+    setImg({
+      raw: target.files[0]
+    })
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append('file', img.raw);
+    formData.append('name', name.value);
+    formData.append('email', email.value);
+    formData.append('celular', celular.value);
+    formData.append('cargo', cargo.value);
+    formData.append('sexo', sexo);
+    formData.append('dataNasc', dataNasc.value);
+    formData.append('senha', senha.value);
+
     if (confirSenha.value === senha.value) {
       const req = user
-      .post("/cadastrar", {
-        name: name.value,
-        email: email.value,
-        celular: celular.value,
-        cargo: cargo.value,
-        sexo: sexo,
-        dataNasc: dataNasc.value,
-        senha: senha.value,
-      });
+      .post("/cadastrar", formData);
       const response = await request(req);
       if(response) userLogin(email.value, senha.value);
     } else {
@@ -75,6 +84,13 @@ const Cadastro = () => {
             type="password"
             label="Confirme a senha"
             {...confirSenha}
+          />
+          <Input 
+            id="ftperfil"
+            type="file"
+            label="Imagem de perfil"
+            required
+            onChange={handleChangeImg}
           />
           {loading ? (
             <Button disabled>Cadastrando</Button>

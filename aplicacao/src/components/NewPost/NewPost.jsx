@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../Form/Button/Button";
-import {Error} from '../Helper/Error/Error'
+import {Error} from '../Helper/Error'
 import Preview from "../Preview/Preview";
 import Upload from "../Upload/Upload";
 import * as S from "./style";

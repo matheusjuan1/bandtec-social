@@ -2,10 +2,12 @@ const express = require('express');
 const Usuario = express.Router();
 const controllers = require('../controllers/usuario');
 const token = require('../middleware/token');
+const multerConfig = require('../config/multer')
+const multer = require('multer')
 
 
 Usuario.route('/cadastrar')
-    .post(controllers.addUser)
+    .post(multer(multerConfig).single("file"), controllers.addUser)
 
 Usuario.route('/autenticar')
     .post(controllers.authUser)

@@ -5,7 +5,7 @@ import Main from './pages/Main';
 import Profile from './pages/Profile';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './components/Helper/PrivateRoute';
 import Comunidade from './pages/Comunidade';
 
 

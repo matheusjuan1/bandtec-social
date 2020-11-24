@@ -34,9 +34,12 @@ const usuario = database.sequelize.define('usuario', {
     },
     ftperfil: {
         type: database.Sequelize.STRING,
-        allowNull: false,
-        defaultValue:"http://localhost:3030/files/sem-perfil.jpg"
+        allowNull: true
     },
+    imageKey: {
+        type: database.Sequelize.STRING,
+        allowNull: true,
+    }
 }, {
     //
 });
@@ -50,6 +53,14 @@ usuario.beforeCreate((usuario) => {
         .catch(err => { 
             throw new Error(); 
         });
+});
+
+usuario.beforeCreate((user) => {
+    if (!user.ftperfil) {
+        user.ftperfil = `${process.env.APP_URL}/files/${user.imageKey}`
+        console.log("caiu")
+    }
+    console.log("Não caiu")
 });
 
 usuario.prototype.validPassword = async function(password) {
