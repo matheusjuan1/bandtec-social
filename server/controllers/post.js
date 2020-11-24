@@ -5,11 +5,10 @@ module.exports = {
     add: function (req, res) {
         let requests = {}
         if (req.body.image == "1") {
-            const { originalname: imageName = "", key: imageKey = "", location: imageUrl = "" } = req.file
+            const { key: imageKey = "", location: imageUrl = "" } = req.file
             requests = {
                 conteudo: req.body.conteudo,
                 image: req.body.image,
-                imageName,
                 imageKey,
                 imageUrl,
                 usuarioId: req.body.fkUsuario

@@ -1,20 +1,15 @@
-// const database = require('../config/database');
-// const usuario = require('./usuario');
-// const post = require('./post');
+const database = require('../config/database');
 
-// const like = database.sequelize.define('like',{
-//     coringa: {
-//         type: database.Sequelize.INTEGER,
-//         allowNull: false
-//     }
-// },{
-//     //
-// });
+const likes = database.sequelize.define('likes', {
+    conteudo: {
+        type: database.Sequelize.STRING,
+        allowNull: false
+    }
+}, {
+    // 
+});
 
-// like.belongsTo(post, {onDelete: 'CASCADE', hooks: true});
 
-// like.belongsTo(usuario, {onDelete: 'CASCADE', hooks: true});
+likes.sync({ force: true });
 
-// like.sync({ force: true });
-
-// module.exports = post;
+module.exports = likes;

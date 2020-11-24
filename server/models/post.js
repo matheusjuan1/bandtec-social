@@ -18,10 +18,6 @@ const post = database.sequelize.define('post', {
         allowNull: false,
         defaultValue: 0
     },
-    imageName: {
-        type: database.Sequelize.STRING(350),
-        allowNull: true
-    },
     imageKey: {
         type: database.Sequelize.STRING(350),
         allowNull: true
@@ -35,9 +31,12 @@ const post = database.sequelize.define('post', {
 });
 
 post.beforeCreate((post) => {
-    if (!post.imageUrl) {
-        post.imageUrl = `${process.env.APP_URL}/files/${post.imageKey}`
+    if (post.image) {
+        if (!post.imageUrl) {
+            post.imageUrl = `${process.env.APP_URL}/files/${post.imageKey}`
+        }
     }
+    
 });
 
 post.beforeDestroy((post) => {
