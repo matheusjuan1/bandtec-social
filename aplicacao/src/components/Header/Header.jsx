@@ -33,14 +33,18 @@ const Header = () => {
                     <Sair />
                     Sair
                 </button>
-                <p>BandTec Social @ 2020</p>
+                <S.Icons>
+                    <i className="fab fa-facebook-square"></i>
+                    <i className="fab fa-instagram"></i>
+                    <i className="fab fa-linkedin"></i>
+                </S.Icons>
+                <p>BandTec Social © 2020</p>
             </S.NavM>
             </div>) : 
-            (<Link className="login" to="login">
+            (<Link className="login" to={{pathname: '/login'}}>
                 Login/ Criar <Usuario  className="usuarioSvg"/>
             </Link> )}
         </S.Nav>
-        
     </S.Header>
     )
 };

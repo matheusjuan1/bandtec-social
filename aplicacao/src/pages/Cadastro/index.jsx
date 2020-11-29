@@ -30,6 +30,7 @@ const Cadastro = () => {
 
   function handleChangeImg({target}) {
     setImg({
+      preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0]
     })
   }
@@ -58,6 +59,13 @@ const Cadastro = () => {
 
   return (
     <S.Cadastro>
+      <S.Preview>
+          <img alt="" src={img.preview ? img.preview : "http://localhost:3030/files/sem-perfil.jpg"}/>
+          <h3>{name.value ? name.value : "Nome"}</h3>
+          <h4>{cargo.value ? cargo.value : "Cargo"}</h4>
+          <h4>{dataNasc.value ? dataNasc.value : "2020-01-01"}</h4>
+          <h4>{email.value ? email.value : "email@bandtec.com.br"}</h4>
+      </S.Preview>
       <div className="animeLeft forms">
         <h1 className="title">Cadastre-se</h1>
         <form onSubmit={handleSubmit}>

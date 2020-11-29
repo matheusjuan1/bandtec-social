@@ -61,7 +61,7 @@ export const NavM = styled.nav`
     display: block;
     position: absolute;
     top: 48px;
-    right: 20px;
+    right: 11.5%;
     background: white;
     box-shadow: 0 1px 2px rgba(0,0,0, .2);
     border-radius: .5rem;
@@ -98,5 +98,22 @@ export const NavM = styled.nav`
         width: 22px;
         height: auto;
         margin-right: .5rem
+    }
+`
+
+export const Icons = styled.div`
+    color: rgba(100, 100,100, 0.9);
+    font-size: 1.8rem;
+    width: 100%;
+    text-align: center;
+
+    i{
+        margin: auto .8rem;
+        padding-top: .6rem;
+        transition: 0.2s;
+    }
+
+    i:hover {
+        color: #FF005C;
     }
 `

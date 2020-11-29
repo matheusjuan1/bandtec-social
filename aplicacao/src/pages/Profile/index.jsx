@@ -1,49 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Button } from '../../components/Form/Button/Button';
 import { Post } from '../../components/Post/Post';
 import api from '../../services/api';
+import { UserContext } from '../../UserContext';
 import './styles.css';
 
 
-export default class Profile extends Component {
+const Profile = () => {
+    const [posts, setPosts] = React.useState([]);
+    const {dados} = React.useContext(UserContext);
 
-    state = {
-        posts: [],
-        usuario: []
+    React.useEffect(() => {
+        if (dados) loadPosts();
+    }, [dados]);
+
+    async function loadPosts() {
+        const response = await api.post(`/${dados.idUsuario}`);
+        setPosts(response.data);
     }
-
-
-    componentDidMount() {
-        this.loadPosts();
-    }
-
-    loadPosts = async () => {
-        const response = await api.post('/1');
-        this.setState({
-            posts: response.data,
-            usuario: response.data[0].usuario
-        });
-    }
-
-    render() {
         return (
-            <div className="mainSession">
+            <>
+            {dados ? 
+                <div className="container">
                 <div className="perfil">
-                    <img alt='' src="images/sem-perfil.jpg" />
+                    <img alt='' src={dados.ftperfil} />
                     <div>
-                        <h3>{this.state.usuario.firstName} {this.state.usuario.lastName}</h3>
-                        <button>Editar Perfil</button>
-                        <h5>{this.state.usuario.email}</h5>
-                        <h5>{this.state.usuario.celular}</h5>
-                        <h5>{this.state.usuario.cargo}</h5>
-                        <h5>{this.state.usuario.dataNasc}</h5>
+                        <h3>{dados.name}</h3>
+                        <Button>Editar Perfil</Button>
+                        <h5>{dados.email}</h5>
+                        <h5>{dados.celular}</h5>
+                        <h5>{dados.cargo}</h5>
+                        <h5>{dados.dataNasc}</h5>
                     </div>
                 </div>
                 <div className="posts-list">
-                    {this.state.posts.map(post => (
+                    {posts.map(post => (
                         <Post key={post.id} post={post} />
                     ))}
                 </div>
-            </div>
+            </div> : <p>Carregando...</p>
+            }
+            </>
         )
-    }
 }
+
+export default Profile;

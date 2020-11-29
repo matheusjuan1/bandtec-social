@@ -1,15 +1,16 @@
-import React from 'react'
+import React from 'react';
+import * as S from "./style"
 
 export const Select = ({options, label, value, setValue, ...props}) => {
     return (
-        <label>
+        <S.Label>
             {label}
-           <select style={{textDecoration: 'Capitalize'}} {...props} value={value} onChange={({target}) => setValue(target.value)}>
+           <S.Select {...props} value={value} onChange={({target}) => setValue(target.value)}>
                <option value='' disabled>Selecione</option>
                {options.map(option => 
                     <option key={option} value={option}>{option}</option>
                 )}
-            </select> 
-        </label>
+            </S.Select> 
+        </S.Label>
     )
 }

@@ -18,8 +18,10 @@ const Comunidade = () => {
 
     React.useEffect(() => {
         if (search !== null) {
-            setUsers2(users.filter(user => (user.name.toLowerCase()).includes(search.toLowerCase())))
-        }         
+            if (search !== "") {
+                setUsers2(users.filter(user => (user.name.toLowerCase()).includes(search.toLowerCase())))
+            } 
+        }      
     }, [search, users])
 
     return (
@@ -33,7 +35,7 @@ const Comunidade = () => {
             </S.HeaderCom>
             <S.Users>
                 {users && users2.length < 1 && users.map(user => 
-                    <CardUser key={user.id} user={user} />
+                    <CardUser key={user.id} user={user} /> 
                 )}
                 {users2.length > 0 && users2.map(user =>  
                     <CardUser key={user.id} user={user} /> 

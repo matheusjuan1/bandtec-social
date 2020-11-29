@@ -1,5 +1,6 @@
 const Post = require("../models/post");
 const usuarios = require("../models/usuario");
+const likes = require('../models/like')
 
 module.exports = {
     add: function (req, res) {
@@ -82,5 +83,27 @@ module.exports = {
         }).catch(function () {
             res.status(400).send("Erro")
         })
+    },
+    addComment: function (req, res) {
+        Post.create({
+            conteudo: req.body.conteudo,
+            postId: req.body.fkpost,
+            usuarioId: req.body.fkusuario
+        }).then(function (response) {
+            res.status(201).json(response);
+        }).catch(function (error) {
+            res.status(400)
+        })
     }
+    // like: function (req, res) {
+    //     // likes.create({
+    //     //     usuarioId: req.body.fkusuario,
+    //     //     postId: req.body.fkpost
+    //     // }).then(function (response) {
+    //     //     res.status(200).send(curtidas)
+    //     // }).catch( function () {
+    //     //     res.status(400).send("Erro")
+    //     // })
+    //     likes.findAll();
+    // }
 }

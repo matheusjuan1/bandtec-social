@@ -1,18 +1,10 @@
 import styled from 'styled-components';
-import image from '../../assets/undraw_social_girl_562b.png'
 
 export const Cadastro = styled.section`
   display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
     gap: 2rem;
-
-    &::before {
-        display: block;
-        content: '';
-        background: url(${image}) no-repeat center center;
-        background-size: cover;
-    }
 
     .forms {
         max-width:30rem;
@@ -32,3 +24,18 @@ export const Cadastro = styled.section`
         }
     }
 `;
+
+export const Preview = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 7.5rem;
+
+    img {
+        height: 15rem;
+        width: 15rem;
+        border-radius: 100%;
+        border: 3px solid #FF005C;
+        box-shadow: 0px 2px 6px rgba(0,0,0,.8);
+    }
+`
