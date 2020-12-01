@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from './style';
-import {Link, NavLink } from 'react-router-dom'
 // import {logo} from '../../assets/logo.png';
 import {ReactComponent as Usuario} from '../../assets/usuario.svg'
 import { UserContext} from '../../UserContext';
@@ -14,21 +13,21 @@ const Header = () => {
     return (
     <S.Header >
         <S.Nav className="container">
-           <Link to="/" >
+           <a href="/" >
             <img src="./images/logo.png" alt="" />
-            </Link>
+            </a>
             {dados ? (
             <div onClick={() => setMenu(!menu)} className="login" to="perfil">
                 {dados.name} <img className="imgperfil" src={dados.ftperfil} alt=""/> 
                 <S.NavM className={menu && "navActive"}>
-                <NavLink to="/perfil">
+                <a href="/perfil">
                     <User />
                     Minha Conta
-                </NavLink>
-                <NavLink to="/comunidade">
+                </a>
+                <a href="/comunidade">
                     <Users />
                     BandTechrs
-                </NavLink>
+                </a>
                 <button onClick={userLogout}>
                     <Sair />
                     Sair
@@ -41,9 +40,9 @@ const Header = () => {
                 <p>BandTec Social © 2020</p>
             </S.NavM>
             </div>) : 
-            (<Link className="login" to={{pathname: '/login'}}>
+            (<a className="login" href="/login">
                 Login/ Criar <Usuario  className="usuarioSvg"/>
-            </Link> )}
+            </a> )}
         </S.Nav>
     </S.Header>
     )

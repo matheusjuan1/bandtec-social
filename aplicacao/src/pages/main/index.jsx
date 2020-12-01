@@ -25,7 +25,6 @@ const Main = () => {
   }, []);
 
   function handleUpload(files) {
-    console.log(files[0])
     setImg({
       preview: URL.createObjectURL(files[0]),
       raw: files[0]
@@ -43,7 +42,6 @@ const Main = () => {
         formData.append("image", 1);
         const req = api.post("/", formData);
         const response = await request(req);
-        console.log(response);
         setImg(null);
         setPost("");
       } else {

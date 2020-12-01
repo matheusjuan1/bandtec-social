@@ -1,6 +1,6 @@
 import React from "react";
 import { UserContext } from "../../UserContext";
-import { PostDelete } from "./PostDelete/PostDelete";
+import { PostDelete } from "./PostDelete";
 import * as S from './style';
 import { parseISO, format, } from 'date-fns';
 import pt from 'date-fns/locale/pt';
@@ -14,10 +14,12 @@ export const Post = ({post}) => {
   return (
       <S.Post>
         <S.ProfilePost>
-          <img alt="" src={post.usuario.ftperfil}></img>
-          <div className="profile-post-name">
-            <h4>{post.usuario.name}</h4>
-            <h5>{formatDate}</h5>
+          <div className="group-post" >
+            <img alt="" src={post.usuario.ftperfil}></img>
+            <div className="profile-post-name">
+              <h4>{post.usuario.name}</h4>
+              <h5>{formatDate}</h5>
+            </div>
           </div>
           {user.dados && user.dados.idUsuario === post.usuario.id && <PostDelete id={post.id}/>}
         </S.ProfilePost>

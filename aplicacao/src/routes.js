@@ -21,7 +21,7 @@ function Routes() {
                 <Route exact path="/comunidade" component={Comunidade} />
                 <Route exact path="/cadastro" component={Cadastro} />
                 <Route exact path="/login" component={Login} />
-                <Route path="/perfil/:id" component={UserProfile} />
+                <Route exact path="/perfil/:id" component={UserProfile} />
                 <Route path="*" component={NotFound} />
             </Switch>
         </BrowserRouter> 

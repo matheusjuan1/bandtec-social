@@ -26,7 +26,7 @@ const Comunidade = () => {
     }, [search, users])
 
     return (
-        <section className="container">
+        <section className="container animeTop">
             <Head title="Comunidade"/>
             <S.HeaderCom>
                 <h1 className="title">Comunidade BandTec</h1>

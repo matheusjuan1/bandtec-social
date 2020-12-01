@@ -61,12 +61,12 @@ const Cadastro = () => {
   return (
     <S.Cadastro>
       <Head title="Cadastro"/>
-      <S.Preview>
+      <S.Preview className="preview">
           <img alt="" src={img.preview ? img.preview : "http://localhost:3030/files/sem-perfil.jpg"}/>
-          <h3>{name.value ? name.value : "Nome"}</h3>
-          <h4>{cargo.value ? cargo.value : "Cargo"}</h4>
-          <h4>{dataNasc.value ? dataNasc.value : "2020-01-01"}</h4>
-          <h4>{email.value ? email.value : "email@bandtec.com.br"}</h4>
+          <h2>{name.value ? name.value : "Nome"}</h2>
+          <h3>{cargo.value ? cargo.value : "Cargo"}</h3>
+          <h3>{dataNasc.value ? dataNasc.value : "2020-01-01"}</h3>
+          <h3>{email.value ? email.value : "email@bandtec.com.br"}</h3>
       </S.Preview>
       <div className="animeLeft forms">
         <h1 className="title">Cadastre-se</h1>

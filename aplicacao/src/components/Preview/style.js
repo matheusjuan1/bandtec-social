@@ -33,9 +33,8 @@ export const PreviewI = styled.div`
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
+    background-image: url(${props => props.src});
     width: 100%;
-    height: auto;
     border-radius: 5px;
-    background-position: 50% 50%;
     margin-right: 10px;
 `;

@@ -1,6 +1,7 @@
 import React from "react";
-import api from "../../../services/api";
-import useFetch from "../../../hooks/useFetch";
+import api from "../../services/api";
+import useFetch from "../../hooks/useFetch";
+import {ButtonDelete} from './style';
 
 export const PostDelete = ({ id }) => {
   const { loading, request } = useFetch();
@@ -16,9 +17,9 @@ export const PostDelete = ({ id }) => {
   return (
     <>
       {loading ? (
-        <button disabled>Excluindo...</button>
+        <ButtonDelete disabled>Excluindo...</ButtonDelete>
       ) : (
-        <button onClick={handleClick}>Excluir</button>
+        <ButtonDelete onClick={handleClick}>Excluir</ButtonDelete>
       )}
     </>
   );

@@ -12,10 +12,10 @@ const Preview = ({dataimg, setImg}) => {
         <Container>
         <FileInfo>
             <div>
-                <button onClick={handleClick}><i class="fas fa-times-circle"></i></button>
+                <button onClick={handleClick}><i className="fas fa-times-circle"></i></button>
             </div>
         </FileInfo>
-        <PreviewI style={{backgroundImage: `url(${dataimg.preview})`}}>
+        <PreviewI src={dataimg.preview}>
         </PreviewI>
     </Container>}
     </>

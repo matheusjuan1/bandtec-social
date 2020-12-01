@@ -13,29 +13,35 @@ export const Post = styled.article`
     .conteudo p{
         font-size: 1.5rem;
     }
+
+    button {
+        float: inline-end;
+    }
 `;
 
 export const ProfilePost = styled.div`
     float: left;
     display: flex;
     margin-bottom: 1vmin;
+    justify-content: space-between;
+    width: 100%;
 
     img {
         width: 40px;
         height: 40px;
         border-radius: 100%;
     }
-
-    .profile-post-name {
+    .group-post {
         display: grid;
+        grid-template-columns:2.5rem 15rem;
     }
 
     h4 {
-        margin: 0.2vmin 1.5vmin;
+        margin: 0.2vmin 1vmin;
     }
     h5 {
         color: #919191;
-        margin: auto 2vmin;
+        margin: auto 1.7vmin;
     }
 `
 
@@ -60,3 +66,13 @@ export const PostImage = styled.div`
     }
 `
 
+export const ButtonDelete = styled.div`
+    border: none;
+    outline:none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+        color: #FF005C;
+    }
+`
