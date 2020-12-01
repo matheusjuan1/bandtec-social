@@ -2,7 +2,8 @@ import React from 'react'
 import { CardUser } from '../../components/CardUser/CardUser';
 import user from '../../services/apiUser';
 import {Input} from '../../components/Form/Input/Input';
-import * as S from './style'
+import * as S from './style';
+import Head from '../../components/Helper/Head';
 
 const Comunidade = () => {
     const [users, setUsers] = React.useState([]);
@@ -26,6 +27,7 @@ const Comunidade = () => {
 
     return (
         <section className="container">
+            <Head title="Comunidade"/>
             <S.HeaderCom>
                 <h1 className="title">Comunidade BandTec</h1>
                 <S.Barra>

@@ -11,11 +11,9 @@ export default createGlobalStyle`
     }
 
     body {
-        font-family: 'Exo 2', sans-serif;
+        font-family: 'Exo 2';
         background-color: #fafafa;
         color: #333;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
         padding-top: 4rem;
     }
     a{

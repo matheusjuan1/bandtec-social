@@ -34,7 +34,7 @@ export const ProfilePost = styled.div`
         margin: 0.2vmin 1.5vmin;
     }
     h5 {
-        color: #a9a9a9;
+        color: #919191;
         margin: auto 2vmin;
     }
 `

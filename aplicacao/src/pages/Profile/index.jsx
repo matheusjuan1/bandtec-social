@@ -1,9 +1,12 @@
 import React from 'react';
 import { Button } from '../../components/Form/Button/Button';
+import Loading from '../../components/Helper/Loading/Loading';
+import NewPost from '../../components/NewPost/NewPost';
 import { Post } from '../../components/Post/Post';
 import api from '../../services/api';
 import { UserContext } from '../../UserContext';
-import './styles.css';
+import * as S from "./style";
+import Head from '../../components/Helper/Head';
 
 
 const Profile = () => {
@@ -12,7 +15,7 @@ const Profile = () => {
 
     React.useEffect(() => {
         if (dados) loadPosts();
-    }, [dados]);
+    }, [dados, loadPosts]);
 
     async function loadPosts() {
         const response = await api.post(`/${dados.idUsuario}`);
@@ -22,23 +25,27 @@ const Profile = () => {
             <>
             {dados ? 
                 <div className="container">
-                <div className="perfil">
+                    <Head title={dados.name} />
+                <S.Perfil>
                     <img alt='' src={dados.ftperfil} />
-                    <div>
-                        <h3>{dados.name}</h3>
+                    <S.Infos>
+                        <h1>{dados.name}</h1>
+                        <h3><i className="fas fa-at"></i> {dados.email}</h3>
+                        <h3><i className="fas fa-mobile-alt"></i> {dados.celular}</h3>
+                        <h3><i className="far fa-building"></i> {dados.cargo}</h3>
+                        <h3><i className="fas fa-calendar-alt"></i> {dados.dataNasc}</h3>
+                    </S.Infos>
+                    <S.DivButton>
                         <Button>Editar Perfil</Button>
-                        <h5>{dados.email}</h5>
-                        <h5>{dados.celular}</h5>
-                        <h5>{dados.cargo}</h5>
-                        <h5>{dados.dataNasc}</h5>
-                    </div>
-                </div>
-                <div className="posts-list">
+                    </S.DivButton>
+                </S.Perfil>
+                <NewPost/>
+                <div>
                     {posts.map(post => (
                         <Post key={post.id} post={post} />
                     ))}
                 </div>
-            </div> : <p>Carregando...</p>
+            </div> : <Loading />
             }
             </>
         )

@@ -26,3 +26,5 @@ export const useFetch = () => {
         data, loading, error, request, setError
     }
 }
+
+export default useFetch;

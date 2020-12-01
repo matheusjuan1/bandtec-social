@@ -6,6 +6,7 @@ import { UserContext } from "../../UserContext";
 import NewPost from "../../components/NewPost/NewPost";
 import { Post } from "../../components/Post/Post";
 import {useFetch} from "../../hooks/useFetch";
+import Head from '../../components/Helper/Head';
 
 const Main = () => {
   const { dados } = React.useContext(UserContext);
@@ -58,7 +59,8 @@ const Main = () => {
   }
 
   return (
-    <div className="container">
+    <section className="container animeTop">
+      <Head title="Home" />
       <NewPost
         setPost={setPost}
         post={post}
@@ -76,7 +78,7 @@ const Main = () => {
           <Post key={post.id} post={post} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

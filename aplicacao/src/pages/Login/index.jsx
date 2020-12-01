@@ -6,7 +6,7 @@ import * as S from "./style";
 import { Button } from "../../components/Form/Button/Button";
 import { Input } from "../../components/Form/Input/Input";
 import { Error } from "../../components/Helper/Error";
-
+import Head from '../../components/Helper/Head';
 import { UserContext } from "../../UserContext";
 
 const Login = () => {
@@ -28,6 +28,7 @@ const Login = () => {
 
   return (
     <S.Login>
+      <Head title="Login"/>
       <S.Background></S.Background>
       <S.Section className="animeLeft forms">
         <h1 className="title">Login</h1>
@@ -39,7 +40,7 @@ const Login = () => {
           ) : (
             <Button disabled>Carregando...</Button>
           )}
-          <Error error={erro} />
+          <Error error={erro && 'Dados incorretos'} />
         </form>
         <Link className="perdeu" to="/login/criar">
           Perdeu a senha?

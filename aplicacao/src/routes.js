@@ -7,6 +7,8 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 // import PrivateRoute from './components/Helper/PrivateRoute';
 import Comunidade from './pages/Comunidade';
+import UserProfile from './pages/UserProfile'
+import NotFound from './components/Helper/NotFound';
 
 
 
@@ -18,7 +20,9 @@ function Routes() {
                 <Route exact path="/perfil" component={Profile} />
                 <Route exact path="/comunidade" component={Comunidade} />
                 <Route exact path="/cadastro" component={Cadastro} />
-                <Route exact path="/login/" component={Login} />
+                <Route exact path="/login" component={Login} />
+                <Route path="/perfil/:id" component={UserProfile} />
+                <Route path="*" component={NotFound} />
             </Switch>
         </BrowserRouter> 
     )

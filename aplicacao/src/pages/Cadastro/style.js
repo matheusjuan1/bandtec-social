@@ -32,8 +32,8 @@ export const Preview = styled.div`
     padding-top: 7.5rem;
 
     img {
-        height: 15rem;
-        width: 15rem;
+        height: 12rem;
+        width: 12rem;
         border-radius: 100%;
         border: 3px solid #FF005C;
         box-shadow: 0px 2px 6px rgba(0,0,0,.8);

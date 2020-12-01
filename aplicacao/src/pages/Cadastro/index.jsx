@@ -9,6 +9,7 @@ import {Error} from "../../components/Helper/Error"
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../UserContext";
 import { useFetch } from "../../hooks/useFetch";
+import Head from '../../components/Helper/Head';
 
 const Cadastro = () => {
   const name = useForm();
@@ -59,6 +60,7 @@ const Cadastro = () => {
 
   return (
     <S.Cadastro>
+      <Head title="Cadastro"/>
       <S.Preview>
           <img alt="" src={img.preview ? img.preview : "http://localhost:3030/files/sem-perfil.jpg"}/>
           <h3>{name.value ? name.value : "Nome"}</h3>
