@@ -9,7 +9,7 @@ export const CardUser = ({user}) => {
             <p>{user.name}</p>
             <p>{user.cargo}</p>
             <p>{user.email}</p>
-            <Button>Visualizar perfil</Button>
+            <a href={`/perfil/${user.id}`}><Button>Visualizar perfil</Button></a>
         </S.CardUser>
     )
 }

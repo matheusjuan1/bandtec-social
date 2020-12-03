@@ -63,5 +63,17 @@ module.exports = {
         }).catch(function (erro) {
             res.status(400).send(erro)
         })
-    }
+    },
+    getById: function(req,res) {
+        Usuario.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: ['id','name','email','cargo','dataNasc','ftperfil', 'celular']
+        }).then(function (requ) {
+            res.status(200).json(requ)
+        }).catch(function (erro) {
+            res.status(400).send(erro);
+        })
+    } 
 }

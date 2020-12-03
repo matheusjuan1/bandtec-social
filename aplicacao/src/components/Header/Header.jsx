@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style';
-// import {logo} from '../../assets/logo.png';
+import Logo from '../../assets/logo.png';
 import {ReactComponent as Usuario} from '../../assets/usuario.svg'
 import { UserContext} from '../../UserContext';
 import {ReactComponent as Sair} from '../../assets/sair.svg'
@@ -14,7 +14,7 @@ const Header = () => {
     <S.Header >
         <S.Nav className="container">
            <a href="/" >
-            <img src="./images/logo.png" alt="" />
+            <img src={Logo} alt="" />
             </a>
             {dados ? (
             <div onClick={() => setMenu(!menu)} className="login" to="perfil">

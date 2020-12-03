@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Back from  '../../assets/undraw_my_app_grf2.svg'
+import Back from  '../../assets/undraw_develop_app_kvt2.svg'
 
 export const Cadastro = styled.section`
   display: grid;
@@ -34,13 +34,5 @@ export const Preview = styled.div`
     flex-direction: column;
     text-align: center;
     padding-top: 10rem;
-    /* background: url(${Back}) center center no-repeat; */
-    img {
-        height: 12rem;
-        width: 12rem;
-        border-radius: 100%;
-        margin: 1rem auto;
-        border: 3px solid #FF005C;
-        box-shadow: 0px 2px 6px rgba(0,0,0,.6);
-    }
+    background: url(${Back}) center center no-repeat;
 `

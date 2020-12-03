@@ -11,11 +11,12 @@ const Preview = ({dataimg, setImg}) => {
         {dataimg && 
         <Container>
         <FileInfo>
-            <div>
-                <button onClick={handleClick}><i className="fas fa-times-circle"></i></button>
+            <div onClick={handleClick}>
+                <button><i className="fas fa-times-circle"></i></button>
             </div>
         </FileInfo>
-        <PreviewI src={dataimg.preview}>
+        <PreviewI>
+            <img alt="" src={dataimg.preview}/>
         </PreviewI>
     </Container>}
     </>

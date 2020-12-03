@@ -84,17 +84,17 @@ module.exports = {
             res.status(400).send("Erro")
         })
     },
-    addComment: function (req, res) {
-        Post.create({
-            conteudo: req.body.conteudo,
-            postId: req.body.fkpost,
-            usuarioId: req.body.fkusuario
-        }).then(function (response) {
-            res.status(201).json(response);
-        }).catch(function (error) {
-            res.status(400)
-        })
-    }
+    // addComment: function (req, res) {
+    //     Post.create({
+    //         conteudo: req.body.conteudo,
+    //         postId: req.body.fkpost,
+    //         usuarioId: req.body.fkusuario
+    //     }).then(function (response) {
+    //         res.status(201).json(response);
+    //     }).catch(function (error) {
+    //         res.status(400)
+    //     })
+    // }
     // like: function (req, res) {
     //     // likes.create({
     //     //     usuarioId: req.body.fkusuario,

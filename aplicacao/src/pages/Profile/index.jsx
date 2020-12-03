@@ -10,6 +10,7 @@ import Head from "../../components/Helper/Head";
 import useFetch from '../../hooks/useFetch';
 import { parseISO, format, } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import ImageModal from "../../components/ImageModal/ImageModal";
 
 const Profile = () => {
   const [posts, setPosts] = React.useState([]);
@@ -17,15 +18,26 @@ const Profile = () => {
   const [img, setImg] = React.useState(null);
   const {loading, error, request} = useFetch();
   const { dados } = React.useContext(UserContext);
+  const [imageModal, setImageModal] = React.useState(false);
   
 
   React.useEffect(() => {
-    if (dados) loadPosts();
+    if (dados) {
+      async function fetchData() {
+        const response = await api.post(`/${dados.idUsuario}`);
+        setPosts(response.data);
+      }
+      fetchData()
+    }
   }, [dados]);
 
   async function loadPosts() {
     const response = await api.post(`/${dados.idUsuario}`);
     setPosts(response.data);
+  }
+
+  function imageClick() {
+    setImageModal(true);
   }
   
   function handleUpload(files) {
@@ -66,9 +78,10 @@ const Profile = () => {
         <section className="container animeTop">
           <Head title={dados.name} />
           <S.Perfil>
-            <img alt="" src={dados.ftperfil} />
+            <img onClick={imageClick} alt="" src={dados.ftperfil} />
+            <ImageModal image={dados.ftperfil} imageModal={imageModal} setImageModal={setImageModal}/>
+            <S.Infos className="infos">
             <h1>{dados.name}</h1>
-            <S.Infos>
               <h3>
                 <i className="fas fa-at"></i> {dados.email}
               </h3>
@@ -82,7 +95,7 @@ const Profile = () => {
                 <i className="fas fa-calendar-alt"></i> {format(parseISO(dados.dataNasc), "dd 'de' MMMM' de ' yyyy", {locale: pt})}
               </h3>
             </S.Infos>
-            <S.DivButton>
+            <S.DivButton className="divButton">
               <Button>Editar Perfil</Button>
             </S.DivButton>
           </S.Perfil>

@@ -45,12 +45,9 @@ post.beforeDestroy((post) => {
             Bucket: 'upload-bandtec-social',
             Key: post.imageKey
         })
-        console.log('caiu na aws')
     } else {
         promisify(fs.unlink)(path.resolve(__dirname, "..", "tmp", "uploads", post.imageKey))
-        console.log('caiu certo')
     }
-    console.log('ta executando')
 })
 
 post.belongsTo(post, {onDelete: 'CASCADE', hooks: true});

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({baseURL: 'http://localhost:3030/post'});
+const api = axios.create({baseURL: 'https://apibs.azurewebsites.net/post'});
 
 
 export default api;

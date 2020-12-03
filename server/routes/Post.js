@@ -8,8 +8,8 @@ Post.route('/')
     .post( multer(multerConfig).single("file"), controllers.add)
     .get( controllers.getAll);
 
-Post.route('/comment')
-    .post(controllers.addComment);
+// Post.route('/comment')
+//     .post(controllers.addComment);
 
 Post.route('/:id')
     .post(controllers.getByFk)

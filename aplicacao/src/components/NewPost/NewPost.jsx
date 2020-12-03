@@ -11,7 +11,6 @@ const NewPost = ({ post, setPost, dados, createPost, handleUpload, dataimg, setI
     setPost(event.target.value)
   }
 
-
     return (
       <S.NewPost>
         <div>

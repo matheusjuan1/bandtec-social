@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Post = styled.article`
     background-color: white;
     border: 1px solid silver;
-    padding: 2vmin 2vmin 2vmin 3vmin;
+    padding: 2vmin 2vmin 3vmin 3vmin;
     border-radius: 15px;
     width: 100%;
     margin: 0.8vmin auto;
@@ -24,7 +24,6 @@ export const ProfilePost = styled.div`
     display: flex;
     margin-bottom: 1vmin;
     justify-content: space-between;
-    width: 100%;
 
     img {
         width: 40px;
@@ -33,7 +32,7 @@ export const ProfilePost = styled.div`
     }
     .group-post {
         display: grid;
-        grid-template-columns:2.5rem 15rem;
+        grid-template-columns:2.5rem 13.5rem;
     }
 
     h4 {
@@ -71,6 +70,7 @@ export const ButtonDelete = styled.div`
     outline:none;
     background-color: transparent;
     cursor: pointer;
+    padding-right: .3rem;
 
     &:hover {
         color: #FF005C;

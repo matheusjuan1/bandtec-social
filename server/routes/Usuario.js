@@ -21,5 +21,8 @@ Usuario.route('/VALIDATE_JWT')
 Usuario.route('/')
     .get(controllers.getAll);
 
+Usuario.route('/:id')
+    .get(controllers.getById)
+
 
 module.exports = Usuario;

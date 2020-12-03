@@ -6,7 +6,8 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
     timezone: 'America/Sao_Paulo',
     dialectOptions: {
         timezone: 'local'
-    }
+    },
+    logging: false
 });
 
 module.exports= {

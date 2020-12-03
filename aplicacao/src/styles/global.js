@@ -56,8 +56,9 @@ export default createGlobalStyle`
 
     .container {
         max-width: 65rem;
-        padding: 0 1rem;
+        padding: 0 .8rem;
         margin: 0 auto;
+        padding-bottom: 5rem;
     }
 
     .animeLeft {
@@ -69,7 +70,7 @@ export default createGlobalStyle`
     .animeTop {
         opacity: 0;
         transform:translateY(-20px);
-        animation: animeTop .8s forwards;
+        animation: animeTop .65s forwards;
     }
     @keyframes animeTop {
         to {
